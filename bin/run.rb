@@ -5,5 +5,9 @@ require 'pry'
 
 
 
+run
+
+
+
 puts "HELLO WORLD"
 
