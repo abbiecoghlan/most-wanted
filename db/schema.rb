@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 3) do
   end
 
   create_table "crimes", force: :cascade do |t|
-    t.integer "fugative_id"
+    t.integer "fugitive_id"
     t.integer "city_id"
     t.text "description"
     t.string "subject"
