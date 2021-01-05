@@ -37,7 +37,7 @@ response["items"].each do |entry|
         subjects = entry["subjects"].first
     end 
 
-    Crime.create(fugitive_id: fugitive.id, city_id: city.id, description: entry["description"], subject: subjects, reward: entry["reward_text"])
+    Crime.create(fugitive_id: fugitive.id, city_id: city.id, description: entry["description"].gsub(/\r/, " ").gsub(/\n/,""), subject: subjects, reward: entry["reward_text"])
 end
 
 
