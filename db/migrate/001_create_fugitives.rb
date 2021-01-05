@@ -9,6 +9,9 @@ class CreateFugitives < ActiveRecord::Migration[4.2]
             t.boolean :at_large
             t.string :gender
             t.string :warning
+            t.string :scars_and_marks
+
+            t.timestamps
         end
     end
 end
