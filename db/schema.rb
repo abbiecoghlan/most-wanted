@@ -10,6 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 3) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "crimes", force: :cascade do |t|
+    t.integer "fugitive_id"
+    t.integer "city_id"
+    t.text "description"
+    t.string "subject"
+    t.text "reward"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fugitives", force: :cascade do |t|
+    t.string "name"
+    t.string "alias"
+    t.integer "age"
+    t.string "hair_color"
+    t.string "eye_color"
+    t.boolean "at_large"
+    t.string "gender"
+    t.string "warning"
+    t.string "scars_and_marks"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
