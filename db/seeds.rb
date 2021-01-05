@@ -11,12 +11,16 @@ response.parsed_response
 
 response["items"].each do |entry|
     if !entry["aliases"] 
-        fugitive_alias = nil
+        fugitive_alias = "no known aliases"
     else 
-        fugitive_alias = entry["aliases"].first
+        fugitive_alias = entry["aliases"].join(', ')
     end 
 
-    fugitive = Fugitive.create(name: entry["title"], alias: fugitive_alias, age: entry["age_min"], hair_color: entry["hair"], eye_color: entry["eyes_raw"], at_large: true, gender: entry["sex"], warning: entry["warning_message"])
+    if !entry["warning_message"] 
+        entry["warning_message"] = "SHOULD BE CONSIDERED ARMED AND DANGEROUS"
+    end
+
+    fugitive = Fugitive.create(name: entry["title"], alias: fugitive_alias, age: entry["age_min"], hair_color: entry["hair"], eye_color: entry["eyes_raw"], at_large: true, gender: entry["sex"], warning: entry["warning_message"], scars_and_marks: entry["scars_and_marks"])
     
     if !entry["field_offices"] 
         location = nil

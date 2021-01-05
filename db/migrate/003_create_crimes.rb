@@ -5,6 +5,8 @@ class CreateCrimes < ActiveRecord::Migration[4.2]
             t.integer :city_id
             t.text :description
             t.string :subject
+
+            t.timestamps
         end
     end
 end
