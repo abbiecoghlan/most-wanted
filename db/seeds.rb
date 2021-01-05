@@ -4,7 +4,7 @@ City.delete_all
 Crime.delete_all
 Fugitive.delete_all
 
-url = "https://api.fbi.gov/@wanted?pageSize=50&page=1&sort_on=modified&sort_order=desc"
+url = "https://api.fbi.gov/@wanted?pageSize=50&page=1&sort_on=modified&sort_order=desc&person_classification=main"
 response = HTTParty.get(url)
 response.parsed_response
 
