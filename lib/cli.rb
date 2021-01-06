@@ -1,5 +1,10 @@
 class CLI 
 
+    def user_input
+        gets.chomp
+    end
+
+
     def run
         clear_screen
         puts "You are entering the FBI's 50 most wanted database"
@@ -39,7 +44,24 @@ class CLI
 
     end 
 
+    
+
     def fugitive_data
+        clear_screen
+        prompt = TTY::Prompt.new
+        menu = prompt.select("Please select from the following options:",%w(Find_by_name Find_by_location Oldest_fugitive Youngest_fugitive Average_age Most_common_hair_color Most_wanted Main_menu))
+        case menu
+        when "Find_by_name"
+            input = user_input
+            fugitive = Fugitive.find_by(name: input.upcase)
+            if !fugitive 
+                puts "Fugitive not found"
+            else
+                #puts print_data
+            end
+        when "Find_by_location"
+
+        end
     end 
 
     def crime_data
@@ -143,5 +165,6 @@ class CLI
     def clear_screen
         system "clear"
     end
+
 
 end 
