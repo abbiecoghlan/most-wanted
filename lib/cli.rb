@@ -134,7 +134,6 @@ class CLI
     # def run
     #     puts "Enter a name to access a fugitive record:"
     #     input = gets.chomp.upcase
-    #     # binding.pry
     #     selection = Fugitive.find_by(name: input)
     #     puts "Fugitive name: #{selection.name}"
     #     puts "Fugitive age: #{selection.age}"
