@@ -9,4 +9,4 @@ class Crime < ActiveRecord::Base
 #         self.find_by(city_id: city.id)
 #     end
 
-# end
+end
