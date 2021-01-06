@@ -38,5 +38,11 @@ class Fugitive < ActiveRecord::Base
     # end
 
 
+    def print_data
+        puts "Fugitive name: #{self.name}"
+        puts "Known aliases: #{self.alias}"
+        puts "Age: #{self.age}"
+
+    end
 
 end
