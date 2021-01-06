@@ -5,19 +5,19 @@ class Crime < ActiveRecord::Base
     def print_data
         puts "Subject: #{self.subject}"
         puts "Description: #{self.description}"
-        puts "Suspects: #{self.fugitives.name}"
-        puts "Location: #{self.cities.name}"
+        puts "Suspects: #{self.fugitive.name}"
+        puts "Location: #{self.city.name}"
         puts "Date recorded: #{self.created_at}"
         puts "Reward: #{self.reward}"
     end
 
-    def fugitives
-        Fugitive.find_by(id: self.fugitive_id)
-    end 
+    # def fugitives
+    #     Fugitive.find_by(id: self.fugitive_id)
+    # end 
 
-    def cities
-        City.find_by(id: self.city_id)
-    end
+    # def cities
+    #     City.find_by(id: self.city_id)
+    # end
 
 
     #find all the crimes in a city

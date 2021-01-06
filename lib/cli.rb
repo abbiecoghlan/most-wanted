@@ -58,7 +58,7 @@ class CLI
             input = user_input
             found_fugitive = Fugitive.find_by(name: input.upcase)
             if !found_fugitive 
-                puts "Fugitive not found. Verify spelling."
+                puts "Fugitive not found, verify spelling."
             else
                 found_fugitive.print_data
             end
@@ -68,7 +68,7 @@ class CLI
             input = user_input
             found_city = City.find_by(name: input.downcase.gsub(/\s/,""))
             if !found_city
-                puts "City not found. Verify spelling."
+                puts "City not found, verify spelling."
             else 
                 found_fugitives = found_city.fugitives
                 found_fugitives.map {|fugitive| fugitive.print_data}
@@ -82,8 +82,9 @@ class CLI
         when "Average_age"
             puts "The average age of the fugitives in our database is #{Fugitive.average_age}."
         when "Most_common_hair_color"
-            puts "The most common hair color for fugitives in our databse is: #{Fugitive.most_common_hair_color}"
+            puts "The most common hair color for fugitives in our databse is: #{Fugitive.most_common_hair_color}."
         when "Most_wanted"
+            puts "The most wanted fugitive in our database is: "
             Fugitive.all.first.print_data
         when "Main_menu"
             main_menu
