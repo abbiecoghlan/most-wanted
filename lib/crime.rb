@@ -11,13 +11,13 @@ class Crime < ActiveRecord::Base
         puts "Reward: #{self.reward}"
     end
 
-    # def fugitives
-    #     Fugitive.find_by(id: self.fugitive_id)
-    # end 
-
-    # def cities
-    #     City.find_by(id: self.city_id)
-    # end
+    def self.most_common_location
+        crimes_with_city = Crime.select("city_id").where("city_id")
+        city_ids = crimes_with_city.select {|crime| crime.city_id}
+        sorted = city_ids.max_by {|id| city_ids.count(id)}
+        location = City.find(sorted.city_id)
+        location.name
+    end 
 
 
     #find all the crimes in a city

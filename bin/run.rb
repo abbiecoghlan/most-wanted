@@ -10,5 +10,5 @@ new_cli.run
 
 
 
-puts "HELLO WORLD"
+puts "EXITING DATABASE"
 
