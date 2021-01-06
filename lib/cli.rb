@@ -1,3 +1,5 @@
+require "pry"
+
 class CLI 
 
     def user_input
@@ -52,19 +54,51 @@ class CLI
         menu = prompt.select("Please select from the following options:",%w(Find_by_name Find_by_location Oldest_fugitive Youngest_fugitive Average_age Most_common_hair_color Most_wanted Main_menu))
         case menu
         when "Find_by_name"
+            print "Enter name: "
             input = user_input
-            fugitive = Fugitive.find_by(name: input.upcase)
-            if !fugitive 
-                puts "Fugitive not found"
+            found_fugitive = Fugitive.find_by(name: input.upcase)
+            if !found_fugitive 
+                puts "Fugitive not found. Verify spelling."
             else
-                #puts print_data
+                found_fugitive.print_data
             end
-        when "Find_by_location"
 
+        when "Find_by_location"
+            print "Enter location: "
+            input = user_input
+            found_city = City.find_by(name: input.downcase.gsub(/\s/,""))
+            if !found_city
+                puts "City not found. Verify spelling."
+            else 
+                found_fugitives = found_city.fugitives
+                found_fugitives.map {|fugitive| fugitive.print_data}
+            end   
+        when "Oldest_fugitive"
+            puts "The oldest fugitive currently in our database is: "
+            Fugitive.oldest_fugitive.print_data      
+        when "Youngest_fugitive"
+            puts "The youngest fugitive currently in our database is: "
+            Fugitive.youngest_fugitive.print_data      
+        when "Average_age"
+            puts "The average age of the fugitives in our database is #{Fugitive.average_age}."
+        when "Most_common_hair_color"
+            puts "The most common hair color for fugitives in our databse is: #{Fugitive.most_common_hair_color}"
+        when "Most_wanted"
+            Fugitive.all.first.print_data
+        when "Main_menu"
+            main_menu
         end
     end 
 
     def crime_data
+        # clear_screen
+        # prompt = TTY::Prompt.new
+        # menu = prompt.select("Please select from the following options:",%w(Find_by_fugitive Find_by_city Main_menu))
+        # case menu
+        # when 
+        # when 
+        # when 
+        # end 
     end 
 
     def city_data
