@@ -7,3 +7,4 @@ gem "pry"
 gem "require_all"
 gem 'httparty'
 gem 'tty-prompt'
+gem 'tty-table'

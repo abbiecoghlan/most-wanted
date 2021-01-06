@@ -38,6 +38,9 @@ class Fugitive < ActiveRecord::Base
     #     Fugitive.crimes.find_by(city_id: city.id)
     # end
 
+    def print_table
+        table = TTY:Table.new([""])
+    end 
 
     def print_data
         puts "Name: #{self.name}"
