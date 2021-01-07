@@ -295,9 +295,9 @@ class CLI
     def new_fugitive
         fugitive_new = Fugitive.new
         puts "Enter fugitive name: "
-        fugitive_new.name = get.chomp.upcase
+        fugitive_new.name = gets.chomp.upcase
         puts "Enter fugitive alias: "
-        fugitive_new.alias = get.chomp
+        fugitive_new.alias = gets.chomp
         puts "Enter fugitive age: "
         fugitive_new.age = gets.chomp.to_i
         puts "Enter fugitive hair color: "
@@ -356,7 +356,7 @@ class CLI
     end 
 
     def delete_fugitive
-
+        
     end 
 
     def delete_crime
