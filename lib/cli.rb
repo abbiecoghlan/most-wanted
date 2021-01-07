@@ -378,6 +378,79 @@ class CLI
 
      end 
 
+    def update_crime
+        prompt = TTY::Prompt.new
+        my_menu = prompt.select("Locate crime record by:") do |menu|
+            menu.choice 'Fugitive_id'
+            menu.choice 'city_id'
+        end 
+
+        case my_menu
+        when "Fugitive_id" 
+            puts ""
+            print "Enter fugitive_id to locate crime record: "
+            input = user_input.strip.to_i
+            entry = Crime.find_by(fugitive_id: input)
+        when "Id"
+            puts ""
+            print "Enter city_id to locate city record: "
+            input = user_input.strip.to_i
+            entry = Crime.find(input)
+        end
+
+        if !entry 
+            puts ""
+            puts "Crime not located."
+        # else 
+        #     puts ""
+        #     entry.name.capitalize()
+        #     puts ""
+            prompt = TTY::Prompt.new
+            update_menu = prompt.select("Select category to update:") do |menu|
+                menu.choice 'Description'
+                menu.choice 'Subject'
+                menu.choice 'Reward'
+                menu.choice 'Main menu'
+                menu.choice 'Exit'
+            end
+
+            case update_menu
+            when 'Description'
+                puts ""
+                puts "Crime description was previously recorded as #{entry.description.downcase.capitalize()}."
+                puts ''
+                print "Please enter new crime description: "
+                input = user_input.downcase.capitalize()
+                entry.update(description: input)
+                puts ''
+                puts "Description has been updated to #{entry.description.downcase.capitalize()}."
+            when 'Subject'
+                puts ""
+                puts "Crime subject was previously recorded as #{entry.subject.downcase.capitalize()}."
+                puts ''
+                print "Please enter new crime subject: "
+                input = user_input.downcase.capitalize()
+                entry.update(subject: input)
+                puts ''
+                puts "Subject has been updated to #{entry.subject.downcase.capitalize()}."
+            when 'Reward'
+                puts ""
+                puts "Crime reward was previously recorded as #{entry.reward.downcase.capitalize()}."
+                puts ''
+                print "Please enter new crime reward: "
+                input = user_input.downcase.capitalize()
+                entry.update(reward: input)
+                puts ''
+                puts "Reward has been updated to #{entry.reward.downcase.capitalize()}."
+            when 'Main menu'
+                clear_screen
+                main_menu
+            when "Exit"
+                CLI.quit
+            end 
+        end
+    end
+
 
 
     def update_city
