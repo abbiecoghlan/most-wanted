@@ -356,7 +356,10 @@ class CLI
     end 
 
     def delete_fugitive
-        
+        puts "Enter fugitive_id to delete fugitive data: "
+        input = gets.chomp.strip.to_i
+        Fugitive.all.find(input).destroy
+        puts "Fugitive has been removed from the database."
     end 
 
     def delete_crime
