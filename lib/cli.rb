@@ -356,6 +356,7 @@ class CLI
     end 
 
     def delete_fugitive
+        
     end 
 
     def delete_crime
