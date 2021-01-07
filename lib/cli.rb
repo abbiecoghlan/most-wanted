@@ -293,49 +293,49 @@ class CLI
     end 
 
     def new_fugitive
-        new_ fugitive = Fugitive.new
+        fugitive_new = Fugitive.new
         puts "Enter fugitive name: "
-        new_ fugitive.name = get.chomp.upcase
+        fugitive_new.name = get.chomp.upcase
         puts "Enter fugitive alias: "
-        new_ fugitive.alias = get.chomp
+        fugitive_new.alias = get.chomp
         puts "Enter fugitive age: "
-        new_ fugitive.age = gets.chomp.to_i
+        fugitive_new.age = gets.chomp.to_i
         puts "Enter fugitive hair color: "
-        new_ fugitive.hair_color = gets.chomp.downcase
+        fugitive_new.hair_color = gets.chomp.downcase
         puts "Enter fugitive eye color: "
-        new_ fugitive.eye_color = gets.chomp.downcase.capitalize()
-        new_ fugitive.at_large = true
+        fugitive_new.eye_color = gets.chomp.downcase.capitalize()
+        fugitive_new.at_large = true
         puts "Enter fugitive gender: "
-        new_ fugitive.gender = gets.chomp.downcase.capitalize()
+        fugitive_new.gender = gets.chomp.downcase.capitalize()
         puts "Enter fugitive warning: "
-        new_ fugitive.warning = gets.chomp.upcase
+        fugitive_new.warning = gets.chomp.upcase
         puts "Enter fugitive scars and marks: "
-        new_ fugitive.scars_and_marks = gets.chomp.downcase.capitalize()
+        fugitive_new.scars_and_marks = gets.chomp.downcase.capitalize()
 
-        new_ fugitive.save
-        puts "Fugitive has been saved to database, fugitive_id is : #{new_fugitive.id}. "
+        fugitive_new.save
+        puts "Fugitive has been saved to database, fugitive_id is : #{fugitive_new.id}. "
     end 
 
     def new_crime
-        new_crime = Crime.new
+        crime_new = Crime.new
         puts "Enter fugitive ID: "
-        new_crime.fugitive_id = gets.chomp.strip.to_i
+        crime_new.fugitive_id = gets.chomp.strip.to_i
         puts "Enter city ID: "
-        new_crime.city_id = gets.chomp.strip.to_i
+        crime_new.city_id = gets.chomp.strip.to_i
         puts "Enter description: "
-        new_crime.description = gets.chomp
+        crime_new.description = gets.chomp
         puts "Enter subject: "
-        new_crime.subject = gets.chomp
+        crime_new.subject = gets.chomp
         puts "Enter reward: "
-        new_crime.reward = gets.chomp
+        crime_new.reward = gets.chomp
 
-        new_crime.save
-        puts "Crime has been saved to database, crime_id is : #{new_crime.id}."
+        crime_new.save
+        puts "Crime has been saved to database, crime_id is : #{crime_new.id}."
     end 
 
     def new_city
-        new_city = City.find_or_create_by(name: gets.chomp.downcase.gsub(/\s+/, ""))
-        puts "City_id is #{new_city.id}. "
+        city_new = City.find_or_create_by(name: gets.chomp.downcase.gsub(/\s+/, ""))
+        puts "City_id is #{city_new.id}. "
     end 
 
     def delete_records
@@ -356,7 +356,7 @@ class CLI
     end 
 
     def delete_fugitive
-        
+
     end 
 
     def delete_crime
