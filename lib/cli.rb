@@ -90,10 +90,15 @@ class CLI
             input = user_input
             found_fugitive = Fugitive.find_by(name: input.upcase)
             if !found_fugitive 
+                clear_screen
                 puts "Fugitive not found, verify spelling."
                 puts ""
                 main_menu
             else
+                clear_screen
+                puts ""
+                puts "Fugitive record ID# #{found_fugitive.id} was located:"
+                puts ""
                 found_fugitive.print_data
                 puts ""
                 main_menu
@@ -104,10 +109,15 @@ class CLI
             input = user_input
             found_city = City.find_by(name: input.downcase.gsub(/\s/,""))
             if !found_city
+                clear_screen
                 puts "City not found, verify spelling."
                 puts ""
                 main_menu
             else 
+                clear_screen
+                puts ""
+                puts "The following records were located:"
+                puts ""
                 found_fugitives = found_city.fugitives
                 found_fugitives.map {|fugitive| fugitive.print_data}
                 puts ""
@@ -146,7 +156,7 @@ class CLI
             puts ""
             Fugitive.oldest_fugitive.print_data      
             puts ""
-                main_menu
+            main_menu
         when "Youngest fugitive"
             puts ""
             puts "The youngest fugitive currently in our database is: "
