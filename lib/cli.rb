@@ -290,7 +290,7 @@ class CLI
                 puts ""
                 puts "Fugitive name was previously recorded as #{entry.name.downcase.capitalize()}."
                 puts ''
-                print "Please enter new name: "
+                print "Enter new name: "
                 input = user_input.upcase
                 entry.update(name: input)
                 puts ''
@@ -299,7 +299,7 @@ class CLI
                 puts ''
                 puts "Fugitive alias was previously recorded as #{entry.alias.downcase.capitalize()}."
                 puts ''
-                print "Please enter an additional alias: "
+                print "Enter an additional alias: "
                 input = user_input.downcase
                 aliases = "#{entry.alias}, #{input}."
                 entry.update(alias: aliases)
@@ -309,7 +309,7 @@ class CLI
                 puts ''
                 puts "Fugitive age was previously recorded as #{entry.age}."
                 puts ''
-                print "Please enter new age: "
+                print "Enter new age: "
                 input = user_input.to_i
                 entry.update(age: input)
                 puts ''
@@ -318,7 +318,7 @@ class CLI
                 puts ''
                 puts "Fugitive hair color was previously recorded as #{entry.hair_color.downcase.capitalize()}."
                 puts ''
-                print "Please enter new hair color: "
+                print "Enter new hair color: "
                 input = user_input.downcase
                 entry.update(hair_color: input)
                 puts ''
@@ -327,18 +327,21 @@ class CLI
                 puts ''
                 puts "Fugitive's eye color was previously recorded as #{entry.eye_color.downcase.capitalize()}."
                 puts ''
-                print "Please enter new eye color: "
+                print "Enter new eye color: "
                 input = user_input.downcase.capitalize()
                 entry.update(eye_color: input)
                 puts ''
                 puts "Eye color has been updated to #{entry.eye_color.downcase.capitalize()}."
             # when 'At large?'
-                # puts "Suspect is still at large"
+                # puts ''
+                # puts "Fugitive is still at large"
+                # puts ''
+
             when 'Gender'
                 puts ''
                 puts "Fugitive gender was previously recorded as #{entry.gender.downcase.capitalize()}."
                 puts ''
-                print "Please enter new gender: "
+                print "Enter new gender: "
                 input = user_input.downcase.capitalize()
                 entry.update(gender: input)
                 puts ''
@@ -348,7 +351,7 @@ class CLI
                 puts ''
                 puts "Fugitive warning was previously recorded as #{entry.warning}."
                 puts ''
-                print "Please enter new warning: "
+                print "Enter new warning: "
                 input = user_input.upcase
                 entry.update(warning: input)
                 puts ''
@@ -358,7 +361,7 @@ class CLI
                 puts ''
                 puts "Fugitive scars and marks were previously recorded as #{entry.scars_and_marks.downcase.capitalize()}."
                 puts ''
-                print "Please enter additional scars and marks: "
+                print "Enter additional scars and marks: "
                 input = user_input.downcase
                 scars = "#{entry.scars_and_marks}, #{input}."
                 entry.update(scars_and_marks: scars)
@@ -418,7 +421,7 @@ class CLI
                 puts ""
                 puts "Crime description was previously recorded as #{entry.description.downcase.capitalize()}."
                 puts ''
-                print "Please enter new crime description: "
+                print "Enter new crime description: "
                 input = user_input.downcase.capitalize()
                 entry.update(description: input)
                 puts ''
@@ -427,7 +430,7 @@ class CLI
                 puts ""
                 puts "Crime subject was previously recorded as #{entry.subject.downcase.capitalize()}."
                 puts ''
-                print "Please enter new crime subject: "
+                print "Enter new crime subject: "
                 input = user_input.downcase.capitalize()
                 entry.update(subject: input)
                 puts ''
@@ -436,7 +439,7 @@ class CLI
                 puts ""
                 puts "Crime reward was previously recorded as #{entry.reward.downcase.capitalize()}."
                 puts ''
-                print "Please enter new crime reward: "
+                print "Enter new crime reward: "
                 input = user_input.downcase.capitalize()
                 entry.update(reward: input)
                 puts ''
@@ -491,7 +494,7 @@ class CLI
                 puts ""
                 puts "City name was previously recorded as #{entry.name.downcase.capitalize()}."
                 puts ''
-                print "Please enter new city name: "
+                print "Enter new city name: "
                 input = user_input.downcase.gsub(/\s/,"")
                 entry.update(name: input)
                 puts ''
