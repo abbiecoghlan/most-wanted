@@ -390,11 +390,11 @@ class CLI
             print "Enter fugitive_id to locate crime record: "
             input = user_input.strip.to_i
             entry = Crime.find_by(fugitive_id: input)
-        when "Id"
+        when "City_id"
             puts ""
             print "Enter city_id to locate city record: "
             input = user_input.strip.to_i
-            entry = Crime.find(input)
+            entry = Crime.find(city_id: input)
         end
 
         if !entry 
