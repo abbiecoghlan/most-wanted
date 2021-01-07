@@ -15,6 +15,7 @@ class CLI
     end 
 
     def main_menu
+        clear_screen
         prompt = TTY::Prompt.new
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Access Records'
@@ -38,15 +39,21 @@ class CLI
 
     def access_records
         clear_screen
+
         prompt = TTY::Prompt.new
-        access_menu = prompt.select("Please select from the following options:",%w(Access_fugitive_data Access_crime_data Main_menu))
-        
-        case access_menu
-        when "Access_fugitive_data"
+        my_menu = prompt.select("Please select from the following options:") do |menu|
+            menu.choice 'Access Fugitive Data'
+            menu.choice 'Access Crime Data'
+            menu.choice 'Main Menu'
+        end 
+       
+        case my_menu
+        when "Access Fugitive Data"
             fugitive_data
-        when "Access_crime_data"
+        when "Access Crime Data"
             crime_data
-        when "Main_menu"
+        when "Main Menu"
+            clear_screen
             main_menu
         end 
 
@@ -56,9 +63,15 @@ class CLI
     def fugitive_data
         clear_screen
         prompt = TTY::Prompt.new
-        menu = prompt.select("Please select from the following options:",%w(Find_by_name Find_by_location Oldest_fugitive Youngest_fugitive Average_age Most_common_hair_color Most_wanted Main_menu))
-        case menu
-        when "Find_by_name"
+        my_menu = prompt.select("Please select from the following options:") do |menu|
+            menu.choice 'Find by name'
+            menu.choice 'Find by location'
+            menu.choice 'Data analysis'
+            menu.choice 'Main menu'
+        end
+
+        case my_menu
+        when "Find by name"
             print "Enter name: "
             input = user_input
             found_fugitive = Fugitive.find_by(name: input.upcase)
@@ -68,7 +81,7 @@ class CLI
                 found_fugitive.print_data
             end
 
-        when "Find_by_location"
+        when "Find by location"
             print "Enter location: "
             input = user_input
             found_city = City.find_by(name: input.downcase.gsub(/\s/,""))
@@ -78,30 +91,73 @@ class CLI
                 found_fugitives = found_city.fugitives
                 found_fugitives.map {|fugitive| fugitive.print_data}
             end   
-        when "Oldest_fugitive"
-            puts "The oldest fugitive currently in our database is: "
-            Fugitive.oldest_fugitive.print_data      
-        when "Youngest_fugitive"
-            puts "The youngest fugitive currently in our database is: "
-            Fugitive.youngest_fugitive.print_data      
-        when "Average_age"
-            puts "The average age of the fugitives in our database is #{Fugitive.average_age}."
-        when "Most_common_hair_color"
-            puts "The most common hair color for fugitives in our database is: #{Fugitive.most_common_hair_color}."
-        when "Most_wanted"
-            puts "The most wanted fugitive in our database is: "
-            Fugitive.all.first.print_data
-        when "Main_menu"
+        when "Data analysis"
+            analyze_fugitive_data
+        when "Main menu"
+            clear_screen
             main_menu
         end
     end 
 
+    def analyze_fugitive_data
+        clear_screen
+
+        prompt = TTY::Prompt.new
+        my_menu = prompt.select("Please select from the following options:") do |menu|
+            menu.choice 'Oldest fugitive'
+            menu.choice 'Youngest fugitive'
+            menu.choice 'Average age'
+            menu.choice 'Most common hair color'
+            menu.choice 'Most wanted'
+            menu.choice 'Main menu'
+        end
+
+        case my_menu
+        when "Oldest fugitive"
+            puts ""
+            puts "The oldest fugitive currently in our database is: "
+            puts ""
+            Fugitive.oldest_fugitive.print_data      
+        when "Youngest fugitive"
+            puts ""
+            puts "The youngest fugitive currently in our database is: "
+            puts ""
+            Fugitive.youngest_fugitive.print_data      
+        when "Average age"
+            puts ""
+            puts "The average age of the fugitives in our database is #{Fugitive.average_age}."
+            puts ""
+        when "Most common hair color"
+            puts ""
+            puts "The most common hair color for fugitives in our database is: #{Fugitive.most_common_hair_color}."
+            puts ""
+        when "Most wanted"
+            puts ""
+            puts "The most wanted fugitive in our database is: "
+            puts ""
+            Fugitive.all.first.print_data
+        when "Main menu"
+            clear_screen
+            main_menu
+        end
+    end 
+
+
+
     def crime_data
         clear_screen
+
         prompt = TTY::Prompt.new
-        menu = prompt.select("Please select from the following options:",%w(Find_by_fugitive Find_by_city Most_common_location Main_menu))
-        case menu
-        when "Find_by_fugitive"
+        my_menu = prompt.select("Please select from the following options:") do |menu|
+            menu.choice 'Find by fugitive'
+            menu.choice 'Find by city'
+            menu.choice 'Most common location'
+            menu.choice 'Main menu'
+        end
+
+        case my_menu
+        when "Find by fugitive"
+            puts ""
             print "Enter name: "
             input = user_input
             found_fugitive = Fugitive.find_by(name: input.upcase)
@@ -112,7 +168,8 @@ class CLI
                 found_crimes = Crime.all.select {|crime| crime.fugitive_id == found_fugitive.id}
                 found_crimes.map {|crime| crime.print_data}
             end
-        when "Find_by_city" 
+        when "Find by city" 
+            puts ""
             print "Enter city name: "
             input = user_input
             found_city = City.find_by(name: input.downcase.gsub(/\s/,""))
@@ -127,11 +184,12 @@ class CLI
                 found_crimes.map {|crime| crime.print_data}
             end
         
-        when "Most_common_location"
+        when "Most common location"
             puts ""
             puts "The most common location where crimes in our databased have occured is #{Crime.most_common_location.capitalize()}."
             puts ""
-        when "Main_menu"
+        when "Main menu"
+            clear_screen
             main_menu
         end 
 
@@ -141,16 +199,22 @@ class CLI
     def update_records
         clear_screen
         prompt = TTY::Prompt.new
-        update_menu = prompt.select("Please select from the following options:",%w(Update_fugitive_data Update_crime_data Update_city_data Main_menu))
+        my_menu = prompt.select("Locate fugitive record by:") do |menu|
+            menu.choice 'Update fugitive data'
+            menu.choice 'Update crime data'
+            menu.choice 'Update city data'
+            menu.choice 'Main menu'
+        end 
 
-        case update_menu
-        when "Update_fugitive_data"
+        case my_menu
+        when "Update fugitive data"
             update_fugitive
-        when "Update_crime_data"
+        when "Update crime data"
             update_crime        
-        when "Update_city_data"
+        when "Update city data"
             update_city
-        when "Main_menu"
+        when "Main menu"
+            clear_screen
             main_menu
         end 
 
@@ -165,19 +229,24 @@ class CLI
         
         case my_menu
         when "Name" 
+            puts ""
             print "Enter name to locate fugitive record: "
             input = user_input.upcase
             entry = Fugitive.find_by(name: input)
         when "Id"
+            puts ""
             print "Enter ID to locate fugitive record: "
             input = user_input.strip.to_i
             entry = Fugitive.find(input)
         end
 
         if !entry 
+            puts ""
             puts "Fugitive not located."
         else 
+            puts ""
             entry.print_data
+            puts ""
             prompt = TTY::Prompt.new
             update_menu = prompt.select("Select category to update:") do |menu|
                 menu.choice 'Name'
@@ -194,82 +263,96 @@ class CLI
 
             case update_menu
             when 'Name'
+                puts ""
                 puts "Fugitive name was previously recorded as #{entry.name.downcase.capitalize()}."
+                puts ''
                 print "Please enter new name: "
                 input = user_input.upcase
                 entry.update(name: input)
+                puts ''
                 puts "Name has been updated to #{entry.name.downcase.capitalize()}."
             when 'Alias'
+                puts ''
                 puts "Fugitive alias was previously recorded as #{entry.alias.downcase.capitalize()}."
+                puts ''
                 print "Please enter an additional alias: "
                 input = user_input.downcase
                 aliases = "#{entry.alias}, #{input}."
                 entry.update(alias: aliases)
+                puts ''
                 puts "Alias has been updated to #{entry.alias.downcase.capitalize()}."
             when 'Age'
+                puts ''
                 puts "Fugitive age was previously recorded as #{entry.age}."
+                puts ''
                 print "Please enter new age: "
                 input = user_input.to_i
                 entry.update(age: input)
+                puts ''
                 puts "Age has been updated to #{entry.age}."
             when 'Hair color'
+                puts ''
                 puts "Fugitive hair color was previously recorded as #{entry.hair_color.downcase.capitalize()}."
+                puts ''
                 print "Please enter new hair color: "
                 input = user_input.downcase
                 entry.update(hair_color: input)
+                puts ''
                 puts "Hair color has been updated to #{entry.hair_color.downcase.capitalize()}."
             when 'Eye color'
+                puts ''
                 puts "Fugitive's eye color was previously recorded as #{entry.eye_color.downcase.capitalize()}."
+                puts ''
                 print "Please enter new eye color: "
                 input = user_input.downcase.capitalize()
                 entry.update(eye_color: input)
+                puts ''
                 puts "Eye color has been updated to #{entry.eye_color.downcase.capitalize()}."
             when 'At large?'
                 # puts "Suspect is still at large"
 
             when 'Gender'
+                puts ''
                 puts "Fugitive gender was previously recorded as #{entry.gender.downcase.capitalize()}."
+                puts ''
                 print "Please enter new gender: "
                 input = user_input.downcase.capitalize()
                 entry.update(gender: input)
+                puts ''
                 puts "Gender has been updated to #{entry.gender.downcase.capitalize()}."
 
             when 'Warning'
+                puts ''
                 puts "Fugitive warning was previously recorded as #{entry.warning}."
+                puts ''
                 print "Please enter new warning: "
                 input = user_input.upcase
                 entry.update(warning: input)
+                puts ''
                 puts "Warning has been updated to #{entry.warning}."
 
             when 'Scars and marks'
+                puts ''
                 puts "Fugitive scars and marks were previously recorded as #{entry.scars_and_marks.downcase.capitalize()}."
+                puts ''
                 print "Please enter additional scars and marks: "
                 input = user_input.downcase
                 scars = "#{entry.scars_and_marks}, #{input}."
                 entry.update(scars_and_marks: scars)
-                puts "Scars and marks have been updated to #{entry.alias.downcase.capitalize()}."
-
+                puts ''
+                puts "Scars and marks have been updated to #{entry.scars_and_marks.downcase.capitalize()}."
             when 'Main menu'
+                clear_screen
                 main_menu
             end 
         
 
-
         end 
-
-        # entry.update
 
 
      end 
 
 
-    # def update_crime
-    #     prompt = TTY::Prompt.new
-    #     my_menu = prompt.select("Locate fugitive record by:") do |menu|
-    #         menu.choice 'Name'
-    #         menu.choice 'Id'
-    #     end 
-    # end 
 
     def update_city
     end 
@@ -277,17 +360,24 @@ class CLI
 
     def create_new_records
         clear_screen
-        prompt = TTY::Prompt.new
-        create_menu = prompt.select("Please select from the following options:",%w(Add_fugitive Add_crime Add_city Main_menu))
 
-        case create_menu
-        when "Add_fugitive"
+        prompt = TTY::Prompt.new
+        my_menu = prompt.select("Please select from the following options:") do |menu|
+            menu.choice 'Add fugitive'
+            menu.choice 'Add crime'
+            menu.choice 'Add city'
+            menu.choice 'Main menu'
+        end
+
+        case my_menu
+        when "Add fugitive"
             new_fugitive
-        when "Add_crime"
+        when "Add crime"
             new_crime
-        when "Add_city"
+        when "Add city"
             new_city
-        when "Main_menu"
+        when "Main menu"
+            clear_screen
             main_menu
         end 
     end 
@@ -340,17 +430,24 @@ class CLI
 
     def delete_records
         clear_screen
+        
         prompt = TTY::Prompt.new
-        delete_menu = prompt.select("Please select from the following options:",%w(Delete_fugitive Delete_crime Delete_city Main_menu))
+        my_menu = prompt.select("Please select from the following options:") do |menu|
+            menu.choice 'Delete fugitive'
+            menu.choice 'Delete crime'
+            menu.choice 'Delete city'
+            menu.choice 'Main menu'
+        end
 
-        case delete_menu
-        when "Delete_fugitive"
+        case my_menu
+        when "Delete fugitive"
             delete_fugitive
-        when "Delete_crime"
+        when "Delete crime"
             delete_crime
-        when "Delete_city"
+        when "Delete city"
             delete_city
-        when "Main_menu"
+        when "Main menu"
+            clear_screen
             main_menu
         end 
     end 
@@ -376,21 +473,8 @@ class CLI
         puts "This city has been removed from the database. "
     end
 
-    # menu = prompt.select("Please select from the following options:",%w(Access_fugitive_records Access_crime_data Update_fugitive_records Update_crime_data )
-
-
-    # def run
-    #     puts "Enter a name to access a fugitive record:"
-    #     input = gets.chomp.upcase
-    #     selection = Fugitive.find_by(name: input)
-    #     puts "Fugitive name: #{selection.name}"
-    #     puts "Fugitive age: #{selection.age}"
-    #     puts "Fugitive alias: #{selection.alias}"
-    # end 
-
     def clear_screen
         system "clear"
     end
-
 
 end 
