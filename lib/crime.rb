@@ -15,7 +15,7 @@ class Crime < ActiveRecord::Base
         crimes_with_city = Crime.select("city_id").where("city_id")
         city_ids = crimes_with_city.select {|crime| crime.city_id}
         sorted = city_ids.max_by {|id| city_ids.count(id)}
-        location = City.find(sorted.city_id)
+        location = City.find_by(id: sorted.city_id)
         location.name
     end 
 
