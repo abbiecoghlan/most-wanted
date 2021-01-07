@@ -359,17 +359,21 @@ class CLI
         puts "Enter fugitive_id to remove fugitive from database: "
         input = gets.chomp.strip.to_i
         Fugitive.all.find(input).destroy
-        puts "This fugitive has been removed from the database."
+        puts "This fugitive has been removed from the database. "
     end 
 
     def delete_crime
-        puts "Enter crime_id to remove from database: "
+        puts "Enter crime_id to remove from crime from database: "
         input = gets.chomp.strip.to_i
         Crime.all.find(input).destroy
-        puts "This crime has been removed from the database."
+        puts "This crime has been removed from the database. "
     end 
 
     def delete_city
+        puts "Enter city_id to remove from city from database: "
+        input = gets.chomp.strip.to_i
+        City.all.find(input).destroy
+        puts "This city has been removed from the database. "
     end
 
     # menu = prompt.select("Please select from the following options:",%w(Access_fugitive_records Access_crime_data Update_fugitive_records Update_crime_data )
