@@ -168,16 +168,51 @@ class CLI
             print "Enter name to locate fugitive record: "
             input = user_input.upcase
             entry = Fugitive.find_by(name: input)
-        when "ID"
+        when "Id"
             print "Enter ID to locate fugitive record: "
             input = user_input.strip.to_i
             entry = Fugitive.find(input)
         end
 
         if !entry 
-            puts "Fugitive not located, please verify spelling."
+            puts "Fugitive not located."
         else 
-            gets 
+            entry.print_data
+            prompt = TTY::Prompt.new
+            update_menu = prompt.select("Select category to update:") do |menu|
+                menu.choice 'Name'
+                menu.choice 'Alias'
+                menu.choice 'Age'
+                menu.choice 'Hair color'
+                menu.choice 'Eye color'
+                menu.choice 'At large?'
+                menu.choice 'Gender'
+                menu.choice 'Warning'
+                menu.choice 'Scars and marks'
+                menu.choice 'Main menu'
+            end
+
+            case update_menu
+            when 'Name'
+                puts "Fugitive name was previously recorded as #{entry.name.downcase.capitalize()}."
+                print "Please enter new name: "
+                input = user_input.upcase
+                entry.update(name: input)
+                puts "Name has been updated to #{entry.name.downcase.capitalize()}."
+            when 'Alias'
+            when 'Age'
+            when 'Hair color'
+            when 'Eye color'
+            when 'At large?'
+            when 'Gender'
+            when 'Warning'
+            when 'Scars and marks'
+            when 'Main menu'
+                main_menu
+            end 
+        
+
+
         end 
 
         # entry.update
