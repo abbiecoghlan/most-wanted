@@ -111,7 +111,7 @@ class CLI
         when "Exit"
             CLI.quit
         end
-    end 
+    end
 
     def analyze_fugitive_data
         clear_screen
@@ -260,7 +260,7 @@ class CLI
             puts ""
             print "Enter ID to locate fugitive record: "
             input = user_input.strip.to_i
-            entry = Fugitive.find(input)
+            entry = Fugitive.find_by(id: input)
         end
 
         if !entry 
@@ -350,9 +350,6 @@ class CLI
                         #animation
                     else
                         puts "Invalid selection. "
-                    #     puts ''
-                    #     puts "     Type 1 to update fugitive status to captured."
-                    #     puts "     Type 2 to confirm status still at large."
                     end     
             elsif entry.at_large == false
                     puts "Fugitive status is captured." 
@@ -370,9 +367,6 @@ class CLI
                         #animation
                     else
                         puts "Invalid selection. "
-                    #     puts ''
-                    #     puts "     Type 1 to update fugitive status to captured."
-                    #     puts "     Type 2 to confirm status still at large."
                     end     
                 end
                 
@@ -417,11 +411,16 @@ class CLI
 
      end 
 
+
+
+
+
     def update_crime
         prompt = TTY::Prompt.new
         my_menu = prompt.select("Locate crime record by:") do |menu|
             menu.choice 'Crime ID'
             menu.choice 'Fugitive ID'
+            menu.choice 'Main menu'
         end 
 
         case my_menu
@@ -429,10 +428,18 @@ class CLI
             puts ""
             print "Enter crime ID to locate crime record: "
             input = user_input.strip.to_i
-            entry = Crime.find(input)
+            entry = Crime.find_by(id: input)
+            if !entry 
+                puts ""
+                puts "Crime not located. Select from the following options:"
+                puts ""
+                update_crime
 
+            else 
             puts ""
             puts "Crime located, crime ID: #{entry.id}"
+            puts ""
+            entry.print_data
             puts ""
             prompt = TTY::Prompt.new
             update_menu = prompt.select("Select category to update:") do |menu|
@@ -442,42 +449,7 @@ class CLI
                 menu.choice 'Main menu'
                 menu.choice 'Exit'
             end
-
-        when "Fugitive ID"
-            puts ""
-            print "Enter fugitive ID to locate city record: "
-            input = user_input.strip.to_i
-            entry = Crime.find_by(fugitive_id: input)
-        end
-
-        if !entry 
-            puts ""
-            puts "Crime not located."
-        # else entry.id
-        #     puts ""
-        #     puts "Crime located, crime_id: #{entry.id}"
-        #     puts ""
-        #     prompt = TTY::Prompt.new
-        #     update_menu = prompt.select("Select category to update:") do |menu|
-        #         menu.choice 'Description'
-        #         menu.choice 'Subject'
-        #         menu.choice 'Reward'
-        #         menu.choice 'Main menu'
-        #         menu.choice 'Exit'
-        #     end
-        # elsif entry.fugitive_id
-        #     puts ""
-        #     puts "Crime located, fugitive_id: #{entry.fugitive_id}"
-        #     puts ""
-        #     prompt = TTY::Prompt.new
-        #     update_menu = prompt.select("Select category to update:") do |menu|
-        #         menu.choice 'Description'
-        #         menu.choice 'Subject'
-        #         menu.choice 'Reward'
-        #         menu.choice 'Main menu'
-        #         menu.choice 'Exit'
-        #     end
-
+        end 
             case update_menu
             when 'Description'
                 puts ""
@@ -511,11 +483,71 @@ class CLI
                 main_menu
             when "Exit"
                 CLI.quit
+            end     
+
+        when "Fugitive ID"
+            puts ""
+            print "Enter fugitive ID to locate city record: "
+            input = user_input.strip.to_i
+            entry = Crime.find_by(fugitive_id: input)
+            if !entry 
+                puts ""
+                puts "Crime not located. Select from the following options:"
+
+                update_crime
+            else 
+                puts ""
+                puts "Crime located, crime ID: #{entry.id}"
+                puts ""
+                entry.print_data
+                puts ""
+                prompt = TTY::Prompt.new
+                update_menu = prompt.select("Select category to update:") do |menu|
+                    menu.choice 'Description'
+                    menu.choice 'Subject'
+                    menu.choice 'Reward'
+                    menu.choice 'Main menu'
+                    menu.choice 'Exit'
+                end
             end 
+                case update_menu
+                when 'Description'
+                    puts ""
+                    puts "Crime description was previously recorded as #{entry.description.downcase.capitalize()}."
+                    puts ''
+                    print "Enter new crime description: "
+                    input = user_input.downcase.capitalize()
+                    entry.update(description: input)
+                    puts ''
+                    puts "Description has been updated to #{entry.description.downcase.capitalize()}."
+                when 'Subject'
+                    puts ""
+                    puts "Crime subject was previously recorded as #{entry.subject.downcase.capitalize()}."
+                    puts ''
+                    print "Enter new crime subject: "
+                    input = user_input.downcase.capitalize()
+                    entry.update(subject: input)
+                    puts ''
+                    puts "Subject has been updated to #{entry.subject.downcase.capitalize()}."
+                when 'Reward'
+                    puts ""
+                    puts "Crime reward was previously recorded as #{entry.reward.downcase.capitalize()}."
+                    puts ''
+                    print "Enter new crime reward: "
+                    input = user_input.downcase.capitalize()
+                    entry.update(reward: input)
+                    puts ''
+                    puts "Reward has been updated to #{entry.reward.downcase.capitalize()}."
+                when 'Main menu'
+                    clear_screen
+                    main_menu
+                when "Exit"
+                    CLI.quit
+                end     
+        when 'Main menu'
+            main_menu
         end
-    end
-
-
+    end 
 
     def update_city
         prompt = TTY::Prompt.new
@@ -534,7 +566,7 @@ class CLI
             puts ""
             print "Enter ID to locate city record: "
             input = user_input.strip.to_i
-            entry = City.find(input)
+            entry = City.find_by(id: input)
         end
 
         if !entry 
@@ -677,21 +709,21 @@ class CLI
     def delete_fugitive
         puts "Enter fugitive_id to remove fugitive from database: "
         input = gets.chomp.strip.to_i
-        Fugitive.all.find(input).destroy
+        Fugitive.all.find_by(id: input).destroy
         puts "This fugitive has been removed from the database. "
     end 
 
     def delete_crime
         puts "Enter crime_id to remove from crime from database: "
         input = gets.chomp.strip.to_i
-        Crime.all.find(input).destroy
+        Crime.all.find_by(id: input).destroy
         puts "This crime has been removed from the database. "
     end 
 
     def delete_city
         puts "Enter city_id to remove from city from database: "
         input = gets.chomp.strip.to_i
-        City.all.find(input).destroy
+        City.all.find_by(id: input).destroy
         puts "This city has been removed from the database. "
     end
 
