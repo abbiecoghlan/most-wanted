@@ -200,13 +200,38 @@ class CLI
                 entry.update(name: input)
                 puts "Name has been updated to #{entry.name.downcase.capitalize()}."
             when 'Alias'
+                puts "Fugitive alias was previously recorded as #{entry.alias.downcase.capitalize()}."
+                print "Please enter an additional alias: "
+                input = user_input.downcase
+                aliases = "#{entry.alias}, #{input}."
+                entry.update(alias: aliases)
+                puts "Alias has been updated to #{entry.alias.downcase.capitalize()}."
             when 'Age'
+                puts "Fugitive age was previously recorded as #{entry.age}."
+                print "Please enter new age: "
+                input = user_input.to_i
+                entry.update(age: input)
+                puts "Age has been updated to #{entry.age}."
             when 'Hair color'
+                puts "Fugitive hair color was previously recorded as #{entry.hair_color.downcase.capitalize()}."
+                print "Please enter new hair color: "
+                input = user_input.downcase
+                entry.update(hair_color: input)
+                puts "Hair color has been updated to #{entry.hair_color.downcase.capitalize()}."
             when 'Eye color'
+                puts "Fugitive's eye color was previously recorded as #{entry.eye_color.downcase.capitalize()}."
+                print "Please enter new eye color: "
+                input = user_input.downcase.capitalize()
+                entry.update(name: input)
+                puts "Eye color has been updated to #{entry.eye_color.downcase.capitalize()}."
             when 'At large?'
+
             when 'Gender'
+
             when 'Warning'
+
             when 'Scars and marks'
+                
             when 'Main menu'
                 main_menu
             end 
