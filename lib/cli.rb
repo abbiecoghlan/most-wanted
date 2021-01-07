@@ -222,16 +222,33 @@ class CLI
                 puts "Fugitive's eye color was previously recorded as #{entry.eye_color.downcase.capitalize()}."
                 print "Please enter new eye color: "
                 input = user_input.downcase.capitalize()
-                entry.update(name: input)
+                entry.update(eye_color: input)
                 puts "Eye color has been updated to #{entry.eye_color.downcase.capitalize()}."
             when 'At large?'
+                # puts "Suspect is still at large"
 
             when 'Gender'
+                puts "Fugitive gender was previously recorded as #{entry.gender.downcase.capitalize()}."
+                print "Please enter new gender: "
+                input = user_input.downcase.capitalize()
+                entry.update(gender: input)
+                puts "Gender has been updated to #{entry.gender.downcase.capitalize()}."
 
             when 'Warning'
+                puts "Fugitive warning was previously recorded as #{entry.warning}."
+                print "Please enter new warning: "
+                input = user_input.upcase
+                entry.update(warning: input)
+                puts "Warning has been updated to #{entry.warning}."
 
             when 'Scars and marks'
-                
+                puts "Fugitive scars and marks were previously recorded as #{entry.scars_and_marks.downcase.capitalize()}."
+                print "Please enter additional scars and marks: "
+                input = user_input.downcase
+                scars = "#{entry.scars_and_marks}, #{input}."
+                entry.update(scars_and_marks: scars)
+                puts "Scars and marks have been updated to #{entry.alias.downcase.capitalize()}."
+
             when 'Main menu'
                 main_menu
             end 
@@ -246,8 +263,13 @@ class CLI
      end 
 
 
-    def update_crime
-    end 
+    # def update_crime
+    #     prompt = TTY::Prompt.new
+    #     my_menu = prompt.select("Locate fugitive record by:") do |menu|
+    #         menu.choice 'Name'
+    #         menu.choice 'Id'
+    #     end 
+    # end 
 
     def update_city
     end 
@@ -271,6 +293,26 @@ class CLI
     end 
 
     def new_fugitive
+        new_ fugitive = Fugitive.new
+        puts "Enter fugitive name"
+        new_ fugitive.name = get.chomp.upcase
+        puts "Enter fugitive alias"
+        new_ fugitive.alias = get.chomp
+        puts "Enter fugitive age"
+        new_ fugitive.age = gets.chomp.to_i
+        puts "Enter fugitive hair color"
+        new_ fugitive.hair_color = gets.chomp.downcase
+        puts "Enter fugitive eye color"
+        new_ fugitive.eye_color = gets.chomp.downcase.capitalize()
+        new_ fugitive.at_large = true
+        puts "Enter fugitive gender"
+        new_ fugitive.gender = gets.chomp.downcase.capitalize()
+        puts "Enter fugitive warning"
+        new_ fugitive.warning = gets.chomp.upcase
+        puts "Enter fugitive marks and scars"
+        new_ fugitive.age = gets.chomp.downcase.capitalize()
+
+        new_ fugitive.save
     end 
 
     def new_crime
