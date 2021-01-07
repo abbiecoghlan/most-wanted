@@ -1,4 +1,5 @@
 require "pry"
+require 'ruby2d'
 
 
 class CLI 
@@ -14,6 +15,7 @@ class CLI
 
 
     def run
+        Sound.new('dundundun.wav').play
         clear_screen
         puts "You are entering the FBI's 50 most wanted database"
         puts ""
@@ -22,7 +24,6 @@ class CLI
 
     def main_menu
         clear_screen
-        # sound.play
         prompt = TTY::Prompt.new
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Access Records'
@@ -348,6 +349,7 @@ class CLI
                         #animation
                     elsif input == 2
                         entry.update(at_large: true)
+                        # Sound.new('dundundun.wav').play
                         puts "Fugitive is still at large."
                         #animation
                     else
@@ -361,13 +363,12 @@ class CLI
                     input = gets.chomp.strip.to_i
                     if input == 1 
                         entry.update(at_large: true)
-                        puts "Fugitive is still at large."
-
-                        #animation
+                        # Sound.new('dundundun.wav').play
+                        puts "Fugitive status has been updated to atlarge."
+            
                     elsif input == 2
                         entry.update(at_large: false)
                         puts "Fugitive status captured is confirmed"
-                        # sound.play
                         #animation
                     else
                         puts "Invalid selection. "
@@ -654,8 +655,8 @@ class CLI
         fugitive_new.scars_and_marks = gets.chomp.downcase.capitalize()
 
         fugitive_new.save
+        # Sound.new('dundundun.wav').play
         puts "Fugitive has been saved to database, fugitive_id is : #{fugitive_new.id}. "
-        # sound.play
         
     end 
 
@@ -673,8 +674,9 @@ class CLI
         crime_new.reward = gets.chomp
 
         crime_new.save
+        # Sound.new('dundundun.wav').play
         puts "Crime has been saved to database, crime_id is : #{crime_new.id}."
-        # sound.play
+        
         
     end 
 
