@@ -381,7 +381,60 @@ class CLI
 
 
     def update_city
-    end 
+        prompt = TTY::Prompt.new
+        my_menu = prompt.select("Locate city record by:") do |menu|
+            menu.choice 'Name'
+            menu.choice 'Id'
+        end 
+        
+        case my_menu
+        when "Name" 
+            puts ""
+            print "Enter name to locate city record: "
+            input = user_input.downcase.gsub(/\s/,"")
+            entry = City.find_by(name: input)
+        when "Id"
+            puts ""
+            print "Enter ID to locate city record: "
+            input = user_input.strip.to_i
+            entry = City.find(input)
+        end
+
+        if !entry 
+            puts ""
+            puts "City not located."
+        else 
+            puts ""
+            entry.name.capitalize()
+            puts ""
+            prompt = TTY::Prompt.new
+            update_menu = prompt.select("Select category to update:") do |menu|
+                menu.choice 'Name'
+                menu.choice 'Main menu'
+                menu.choice 'Exit'
+            end
+
+            case update_menu
+            when 'Name'
+                puts ""
+                puts "City name was previously recorded as #{entry.name.downcase.capitalize()}."
+                puts ''
+                print "Please enter new city name: "
+                input = user_input.downcase.gsub(/\s/,"")
+                entry.update(name: input)
+                puts ''
+                puts "Name has been updated to #{entry.name.downcase.capitalize()}."
+            when 'Main menu'
+                clear_screen
+                main_menu
+            when "Exit"
+                CLI.quit
+            end 
+
+        end 
+                
+    end
+ 
 
 
     def create_new_records
