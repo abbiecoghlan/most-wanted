@@ -332,11 +332,10 @@ class CLI
                 entry.update(eye_color: input)
                 puts ''
                 puts "Eye color has been updated to #{entry.eye_color.downcase.capitalize()}."
-            # when 'At large?'
-                # puts ''
-                # puts "Fugitive is still at large"
-                # puts ''
-
+            when 'At large?'
+                puts ''
+                puts "Fugitive is still at large"
+                puts ''
             when 'Gender'
                 puts ''
                 puts "Fugitive gender was previously recorded as #{entry.gender.downcase.capitalize()}."
@@ -346,7 +345,6 @@ class CLI
                 entry.update(gender: input)
                 puts ''
                 puts "Gender has been updated to #{entry.gender.downcase.capitalize()}."
-
             when 'Warning'
                 puts ''
                 puts "Fugitive warning was previously recorded as #{entry.warning}."
@@ -356,7 +354,6 @@ class CLI
                 entry.update(warning: input)
                 puts ''
                 puts "Warning has been updated to #{entry.warning.downcase.capitalize()}."
-
             when 'Scars and marks'
                 puts ''
                 puts "Fugitive scars and marks were previously recorded as #{entry.scars_and_marks.downcase.capitalize()}."
