@@ -159,8 +159,32 @@ class CLI
     def update_fugitive
         prompt = TTY::Prompt.new
         my_menu = prompt.select("Locate fugitive record by:") do |menu|
-
+            menu.choice 'Name'
+            menu.choice 'Id'
         end 
+        
+        case my_menu
+        when "Name" 
+            print "Enter name to locate fugitive record: "
+            input = user_input.upcase
+            entry = Fugitive.find_by(name: input)
+        when "ID"
+            print "Enter ID to locate fugitive record: "
+            input = user_input.strip.to_i
+            entry = Fugitive.find(input)
+        end
+
+        if !entry 
+            puts "Fugitive not located, please verify spelling."
+        else 
+            gets 
+        end 
+
+        # entry.update
+
+
+     end 
+
 
     def update_crime
     end 
