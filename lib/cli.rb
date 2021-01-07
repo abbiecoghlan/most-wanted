@@ -1,5 +1,6 @@
 require "pry"
 
+
 class CLI 
 
     def user_input
@@ -21,6 +22,7 @@ class CLI
 
     def main_menu
         clear_screen
+        # sound.play
         prompt = TTY::Prompt.new
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Access Records'
@@ -360,10 +362,12 @@ class CLI
                     if input == 1 
                         entry.update(at_large: true)
                         puts "Fugitive is still at large."
+
                         #animation
                     elsif input == 2
                         entry.update(at_large: false)
                         puts "Fugitive status captured is confirmed"
+                        # sound.play
                         #animation
                     else
                         puts "Invalid selection. "
@@ -406,7 +410,7 @@ class CLI
             end 
         
         end 
-        
+
      end 
 
 
@@ -651,6 +655,8 @@ class CLI
 
         fugitive_new.save
         puts "Fugitive has been saved to database, fugitive_id is : #{fugitive_new.id}. "
+        # sound.play
+        
     end 
 
     def new_crime
@@ -668,6 +674,8 @@ class CLI
 
         crime_new.save
         puts "Crime has been saved to database, crime_id is : #{crime_new.id}."
+        # sound.play
+        
     end 
 
     def new_city
