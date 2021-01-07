@@ -334,8 +334,28 @@ class CLI
                 puts "Eye color has been updated to #{entry.eye_color.downcase.capitalize()}."
             when 'At large?'
                 puts ''
-                puts "Fugitive is still at large"
-                puts ''
+                if entry.at_large == true
+                    puts "Fugitive is still at large." 
+                    puts ''
+                    puts "     Type 1 to update fugitive status to captured."
+                    puts "     Type 2 to confirm status still at large."
+                    input = gets.chomp.strip.to_i
+                    if input == 1 
+                        entry.at_large = false
+                        puts "Fugitive has been captured. "
+                        #animation
+                    if input == 2
+                        entry.at_large = true
+                        puts "Fugitive is still at large."
+                        #animation
+                    else
+                        puts "Invalid selection. "
+                    #     puts ''
+                    #     puts "     Type 1 to update fugitive status to captured."
+                    #     puts "     Type 2 to confirm status still at large."
+
+                    end
+                    end
             when 'Gender'
                 puts ''
                 puts "Fugitive gender was previously recorded as #{entry.gender.downcase.capitalize()}."
