@@ -8,3 +8,4 @@ gem "require_all"
 gem 'httparty'
 gem 'tty-prompt'
 gem 'tty-table'
+gem 'ruby2d'

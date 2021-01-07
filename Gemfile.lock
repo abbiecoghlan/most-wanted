@@ -37,6 +37,7 @@ GEM
       rack
     require_all (3.0.0)
     ruby2_keywords (0.0.2)
+    ruby2d (0.9.4)
     sinatra (2.1.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
@@ -80,6 +81,7 @@ DEPENDENCIES
   httparty
   pry
   require_all
+  ruby2d
   sinatra-activerecord
   sqlite3
   tty-prompt
