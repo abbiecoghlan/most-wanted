@@ -341,11 +341,11 @@ class CLI
                     puts "     Type 2 to confirm status still at large."
                     input = gets.chomp.strip.to_i
                     if input == 1 
-                        entry.at_large = false
+                        entry.update(at_large: false)
                         puts "Fugitive has been captured. "
                         #animation
                     elsif input == 2
-                        entry.at_large = true
+                        entry.update(at_large: true)
                         puts "Fugitive is still at large."
                         #animation
                     else
@@ -361,11 +361,11 @@ class CLI
                     puts "     Type 2 to confirm status still captured."
                     input = gets.chomp.strip.to_i
                     if input == 1 
-                        entry.at_large = true
+                        entry.update(at_large: true)
                         puts "Fugitive is still at large."
                         #animation
                     elsif input == 2
-                        entry.at_large = true
+                        entry.update(at_large: false)
                         puts "Fugitive status captured is confirmed"
                         #animation
                     else
