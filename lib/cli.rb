@@ -422,7 +422,6 @@ class CLI
         my_menu = prompt.select("Locate crime record by:") do |menu|
             menu.choice 'Crime_id'
             menu.choice 'Fugitive_id'
-            # menu.choice 'city_id'
         end 
 
         case my_menu
@@ -431,17 +430,7 @@ class CLI
             print "Enter crime_id to locate crime record: "
             input = user_input.strip.to_i
             entry = Crime.find(input)
-        when "Fugitive_id"
-            puts ""
-            print "Enter fugitive_id to locate city record: "
-            input = user_input.strip.to_i
-            entry = Crime.find_by(fugitive_id: input)
-        end
 
-        if !entry 
-            puts ""
-            puts "Crime not located."
-        elsif entry.id
             puts ""
             puts "Crime located, crime_id: #{entry.id}"
             puts ""
@@ -453,18 +442,41 @@ class CLI
                 menu.choice 'Main menu'
                 menu.choice 'Exit'
             end
-        elsif entry.fugitive_id
+
+        when "Fugitive_id"
             puts ""
-            puts "Crime located, fugitive_id: #{entry.fugitive_id}"
+            print "Enter fugitive_id to locate city record: "
+            input = user_input.strip.to_i
+            entry = Crime.find_by(fugitive_id: input)
+        end
+
+        if !entry 
             puts ""
-            prompt = TTY::Prompt.new
-            update_menu = prompt.select("Select category to update:") do |menu|
-                menu.choice 'Description'
-                menu.choice 'Subject'
-                menu.choice 'Reward'
-                menu.choice 'Main menu'
-                menu.choice 'Exit'
-            end
+            puts "Crime not located."
+        # else entry.id
+        #     puts ""
+        #     puts "Crime located, crime_id: #{entry.id}"
+        #     puts ""
+        #     prompt = TTY::Prompt.new
+        #     update_menu = prompt.select("Select category to update:") do |menu|
+        #         menu.choice 'Description'
+        #         menu.choice 'Subject'
+        #         menu.choice 'Reward'
+        #         menu.choice 'Main menu'
+        #         menu.choice 'Exit'
+        #     end
+        # elsif entry.fugitive_id
+        #     puts ""
+        #     puts "Crime located, fugitive_id: #{entry.fugitive_id}"
+        #     puts ""
+        #     prompt = TTY::Prompt.new
+        #     update_menu = prompt.select("Select category to update:") do |menu|
+        #         menu.choice 'Description'
+        #         menu.choice 'Subject'
+        #         menu.choice 'Reward'
+        #         menu.choice 'Main menu'
+        #         menu.choice 'Exit'
+        #     end
 
             case update_menu
             when 'Description'
