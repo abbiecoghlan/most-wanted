@@ -294,31 +294,48 @@ class CLI
 
     def new_fugitive
         new_ fugitive = Fugitive.new
-        puts "Enter fugitive name"
+        puts "Enter fugitive name: "
         new_ fugitive.name = get.chomp.upcase
-        puts "Enter fugitive alias"
+        puts "Enter fugitive alias: "
         new_ fugitive.alias = get.chomp
-        puts "Enter fugitive age"
+        puts "Enter fugitive age: "
         new_ fugitive.age = gets.chomp.to_i
-        puts "Enter fugitive hair color"
+        puts "Enter fugitive hair color: "
         new_ fugitive.hair_color = gets.chomp.downcase
-        puts "Enter fugitive eye color"
+        puts "Enter fugitive eye color: "
         new_ fugitive.eye_color = gets.chomp.downcase.capitalize()
         new_ fugitive.at_large = true
-        puts "Enter fugitive gender"
+        puts "Enter fugitive gender: "
         new_ fugitive.gender = gets.chomp.downcase.capitalize()
-        puts "Enter fugitive warning"
+        puts "Enter fugitive warning: "
         new_ fugitive.warning = gets.chomp.upcase
-        puts "Enter fugitive marks and scars"
-        new_ fugitive.age = gets.chomp.downcase.capitalize()
+        puts "Enter fugitive scars and marks: "
+        new_ fugitive.scars_and_marks = gets.chomp.downcase.capitalize()
 
         new_ fugitive.save
+        puts "Fugitive has been saved to database, fugitive_id is : #{new_fugitive.id}. "
     end 
 
     def new_crime
+        new_crime = Crime.new
+        puts "Enter fugitive ID: "
+        new_crime.fugitive_id = gets.chomp.strip.to_i
+        puts "Enter city ID: "
+        new_crime.city_id = gets.chomp.strip.to_i
+        puts "Enter description: "
+        new_crime.description = gets.chomp
+        puts "Enter subject: "
+        new_crime.subject = gets.chomp
+        puts "Enter reward: "
+        new_crime.reward = gets.chomp
+
+        new_crime.save
+        puts "Crime has been saved to database, crime_id is : #{new_crime.id}."
     end 
 
     def new_city
+        new_city = City.find_or_create_by(name: gets.chomp.downcase.gsub(/\s+/, ""))
+        puts "City_id is #{new_city.id}. "
     end 
 
     def delete_records
