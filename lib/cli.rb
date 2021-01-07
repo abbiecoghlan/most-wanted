@@ -344,7 +344,7 @@ class CLI
                         entry.at_large = false
                         puts "Fugitive has been captured. "
                         #animation
-                    if input == 2
+                    elsif input == 2
                         entry.at_large = true
                         puts "Fugitive is still at large."
                         #animation
@@ -353,9 +353,29 @@ class CLI
                     #     puts ''
                     #     puts "     Type 1 to update fugitive status to captured."
                     #     puts "     Type 2 to confirm status still at large."
-
-                    end
-                    end
+                    end     
+            elsif entry.at_large == false
+                    puts "Fugitive status is captured." 
+                    puts ''
+                    puts "     Type 1 to update fugitive status to at large."
+                    puts "     Type 2 to confirm status still captured."
+                    input = gets.chomp.strip.to_i
+                    if input == 1 
+                        entry.at_large = true
+                        puts "Fugitive is still at large."
+                        #animation
+                    elsif input == 2
+                        entry.at_large = true
+                        puts "Fugitive status captured is confirmed"
+                        #animation
+                    else
+                        puts "Invalid selection. "
+                    #     puts ''
+                    #     puts "     Type 1 to update fugitive status to captured."
+                    #     puts "     Type 2 to confirm status still at large."
+                    end     
+                end
+                
             when 'Gender'
                 puts ''
                 puts "Fugitive gender was previously recorded as #{entry.gender.downcase.capitalize()}."
