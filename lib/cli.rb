@@ -6,6 +6,11 @@ class CLI
         gets.chomp
     end
 
+    def self.quit
+        system "clear"
+        exit!
+    end 
+
 
     def run
         clear_screen
@@ -22,6 +27,7 @@ class CLI
             menu.choice 'Update Records'
             menu.choice 'Create New Records'
             menu.choice 'Delete Records'
+            menu.choice 'Exit'
         end 
         
         case my_menu
@@ -33,6 +39,8 @@ class CLI
             create_new_records
         when "Delete Records"
             delete_records
+        when "Exit"
+            CLI.quit
         end
     end
 
@@ -45,6 +53,7 @@ class CLI
             menu.choice 'Access Fugitive Data'
             menu.choice 'Access Crime Data'
             menu.choice 'Main Menu'
+            menu.choice 'Exit'
         end 
        
         case my_menu
@@ -55,6 +64,8 @@ class CLI
         when "Main Menu"
             clear_screen
             main_menu
+        when "Exit"
+            CLI.quit
         end 
 
     end 
@@ -68,6 +79,7 @@ class CLI
             menu.choice 'Find by location'
             menu.choice 'Data analysis'
             menu.choice 'Main menu'
+            menu.choice 'Exit'
         end
 
         case my_menu
@@ -96,6 +108,8 @@ class CLI
         when "Main menu"
             clear_screen
             main_menu
+        when "Exit"
+            CLI.quit
         end
     end 
 
@@ -110,6 +124,7 @@ class CLI
             menu.choice 'Most common hair color'
             menu.choice 'Most wanted'
             menu.choice 'Main menu'
+            menu.choice 'Exit'
         end
 
         case my_menu
@@ -139,6 +154,8 @@ class CLI
         when "Main menu"
             clear_screen
             main_menu
+        when "Exit"
+            CLI.quit
         end
     end 
 
@@ -153,6 +170,7 @@ class CLI
             menu.choice 'Find by city'
             menu.choice 'Most common location'
             menu.choice 'Main menu'
+            menu.choice 'Exit'
         end
 
         case my_menu
@@ -191,6 +209,8 @@ class CLI
         when "Main menu"
             clear_screen
             main_menu
+        when "Exit"
+            CLI.quit
         end 
 
     end
@@ -204,6 +224,7 @@ class CLI
             menu.choice 'Update crime data'
             menu.choice 'Update city data'
             menu.choice 'Main menu'
+            menu.choice 'Exit'
         end 
 
         case my_menu
@@ -216,6 +237,8 @@ class CLI
         when "Main menu"
             clear_screen
             main_menu
+        when "Exit"
+            CLI.quit
         end 
 
     end 
@@ -259,6 +282,7 @@ class CLI
                 menu.choice 'Warning'
                 menu.choice 'Scars and marks'
                 menu.choice 'Main menu'
+                menu.choice 'Exit'
             end
 
             case update_menu
@@ -344,6 +368,8 @@ class CLI
             when 'Main menu'
                 clear_screen
                 main_menu
+            when "Exit"
+                CLI.quit
             end 
         
 
@@ -367,6 +393,7 @@ class CLI
             menu.choice 'Add crime'
             menu.choice 'Add city'
             menu.choice 'Main menu'
+            menu.choice 'Exit'
         end
 
         case my_menu
@@ -379,6 +406,8 @@ class CLI
         when "Main menu"
             clear_screen
             main_menu
+        when "Exit"
+            CLI.quit
         end 
     end 
 
@@ -437,6 +466,7 @@ class CLI
             menu.choice 'Delete crime'
             menu.choice 'Delete city'
             menu.choice 'Main menu'
+            menu.choice 'Exit'
         end
 
         case my_menu
@@ -449,6 +479,8 @@ class CLI
         when "Main menu"
             clear_screen
             main_menu
+        when "Exit"
+            CLI.quit
         end 
     end 
 
