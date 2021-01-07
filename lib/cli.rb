@@ -420,19 +420,19 @@ class CLI
     def update_crime
         prompt = TTY::Prompt.new
         my_menu = prompt.select("Locate crime record by:") do |menu|
-            menu.choice 'Crime_id'
-            menu.choice 'Fugitive_id'
+            menu.choice 'Crime ID'
+            menu.choice 'Fugitive ID'
         end 
 
         case my_menu
-        when "Crime_id" 
+        when "Crime ID" 
             puts ""
-            print "Enter crime_id to locate crime record: "
+            print "Enter crime ID to locate crime record: "
             input = user_input.strip.to_i
             entry = Crime.find(input)
 
             puts ""
-            puts "Crime located, crime_id: #{entry.id}"
+            puts "Crime located, crime ID: #{entry.id}"
             puts ""
             prompt = TTY::Prompt.new
             update_menu = prompt.select("Select category to update:") do |menu|
@@ -443,9 +443,9 @@ class CLI
                 menu.choice 'Exit'
             end
 
-        when "Fugitive_id"
+        when "Fugitive ID"
             puts ""
-            print "Enter fugitive_id to locate city record: "
+            print "Enter fugitive ID to locate city record: "
             input = user_input.strip.to_i
             entry = Crime.find_by(fugitive_id: input)
         end
