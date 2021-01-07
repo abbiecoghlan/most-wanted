@@ -356,13 +356,17 @@ class CLI
     end 
 
     def delete_fugitive
-        puts "Enter fugitive_id to delete fugitive data: "
+        puts "Enter fugitive_id to remove fugitive from database: "
         input = gets.chomp.strip.to_i
         Fugitive.all.find(input).destroy
-        puts "Fugitive has been removed from the database."
+        puts "This fugitive has been removed from the database."
     end 
 
     def delete_crime
+        puts "Enter crime_id to remove from database: "
+        input = gets.chomp.strip.to_i
+        Crime.all.find(input).destroy
+        puts "This crime has been removed from the database."
     end 
 
     def delete_city
