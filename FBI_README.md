@@ -21,13 +21,16 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 
 
 
-## **Main Menu Prompts**
+## **Menu Prompts**
 
 ![Welcome to the FBI's 50 most wanted database](https://user-images.githubusercontent.com/73184313/104022455-ecc89280-5185-11eb-8483-c73971045781.jpg)
 
 - **Access Records:** allows users the abilty to access crime and fugitive data or perform a data analysis
    
     - **Access Fugitive Data:** allows users the ability to access data about age, physical features, distinguishing marks, warnings or fugitive status searching by name search, fugitive ID number or location
+
+<img width="328" alt="Fugitive ID description" src="https://user-images.githubusercontent.com/73184313/104024522-dd971400-5188-11eb-862c-d2a72bb3577c.png">
+
         - **Data Analysis:** allows users to access data about oldest fugitives, youngest fugitives, most common hair color and the most wanted fugitive
     - **Access Crime Data:** allows users the ability to access information about the description, subject, suspects, reward and date recorded searching by crime ID, fugitive name or location
         - **Most Common Location:** data regarding the most common location of crimes
@@ -42,7 +45,7 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 - **Remove Records:** allows users the ability to remove a crime, fugitive or city from the database
 
 
-## **Many-Through Relationship**
+## **Has-Many-Through Relationship**
 
 - **Crime:**
 - **Fugitive:**
