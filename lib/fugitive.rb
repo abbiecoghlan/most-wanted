@@ -44,22 +44,25 @@ class Fugitive < ActiveRecord::Base
 
     def print_data
         puts "Name: #{self.name}"
-        sleep 1
+        sleep(0.5)
         puts "Aliases: #{self.alias}"
-        sleep 1
+        sleep(0.5)
         puts "Age: #{self.age}"
-        sleep 1
+        sleep(0.5)
         puts "Hair color: #{self.hair_color}"
-        sleep 1
+        sleep(0.5)
+
         puts "Eye color: #{self.eye_color}"
-        sleep 1
+        sleep(0.5)
         puts "Gender: #{self.gender}"
-        sleep 1
+        sleep(0.5)
+
         puts "Scars and marks: #{self.scars_and_marks}"
-        sleep 1
+        sleep(0.5)
+
         if self.at_large == true
             puts "Status: Suspect is at large"
-            sleep 1
+            sleep(0.5)
             puts "Warning: #{self.warning}"
         else
             puts "Status: Captured" 
