@@ -1,6 +1,6 @@
 # **THE FBI FIFTY MOST WANTED**
 
-<img width="437" alt="FBI Logo" src="https://user-images.githubusercontent.com/73184313/104023303-10d8a380-5187-11eb-85cb-b19eb2dd6343.png"> [^1]
+<img width="437" alt="FBI Logo" src="https://user-images.githubusercontent.com/73184313/104023303-10d8a380-5187-11eb-85cb-b19eb2dd6343.png">
 
 
 Welcome to the FBI 50 Most Wanted application! 
@@ -28,12 +28,12 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 - **Access Records:** allows users the abilty to access crime and fugitive data or perform a data analysis
    
     - **Access Fugitive Data:** allows users the ability to access data about age, physical features, distinguishing marks, warnings or fugitive status searching by name search, fugitive ID number or location
-
-<img width="328" alt="Fugitive ID description" src="https://user-images.githubusercontent.com/73184313/104024522-dd971400-5188-11eb-862c-d2a72bb3577c.png">
-
-        - **Data Analysis:** allows users to access data about oldest fugitives, youngest fugitives, most common hair color and the most wanted fugitive
+        -**Data Analysis:** allows users to access data about oldest fugitives, youngest fugitives, most common hair color and the most wanted fugitive
     - **Access Crime Data:** allows users the ability to access information about the description, subject, suspects, reward and date recorded searching by crime ID, fugitive name or location
         - **Most Common Location:** data regarding the most common location of crimes
+
+<img width="328" alt="Fugitive ID description" src="https://user-images.githubusercontent.com/73184313/104024522-dd971400-5188-11eb-862c-d2a72bb3577c.png"> 
+*Image of a Fugitive Instance*
 
 - **Update Records:** allows users the ability to update crime, fugitive and city information in the database
     - **Update Fugitive Data:** allows users the ability to update or correct any information about a fugitive
