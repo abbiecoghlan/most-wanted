@@ -20,16 +20,15 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 6. If at any time you exit the application run ``` rake enter ``` in your terminal to re-enter the application
 
 
-
 ## **Menu Prompts**
 
 ![Welcome to the FBI's 50 most wanted database](https://user-images.githubusercontent.com/73184313/104022455-ecc89280-5185-11eb-8483-c73971045781.jpg)
 
 - **Access Records:** allows users the abilty to access crime and fugitive data or perform a data analysis
    
-    - **Access Fugitive Data:** allows users the ability to access data about age, physical features, distinguishing marks, warnings or fugitive status searching by name search, fugitive ID number or location
+    - **Access Fugitive Data:** allows users the ability to access data about age, physical features, distinguishing marks, warnings or fugitive status using a name, fugitive ID number or location
         -**Data Analysis:** allows users to access data about oldest fugitives, youngest fugitives, most common hair color and the most wanted fugitive
-    - **Access Crime Data:** allows users the ability to access information about the description, subject, suspects, reward and date recorded searching by crime ID, fugitive name or location
+    - **Access Crime Data:** allows users the ability to access information about the description, subject, reward and date recorded using a crime ID, fugitive name or location
         - **Most Common Location:** data regarding the most common location of crimes
 
 <img width="328" alt="Fugitive ID description" src="https://user-images.githubusercontent.com/73184313/104024522-dd971400-5188-11eb-862c-d2a72bb3577c.png"> 
@@ -44,9 +43,11 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 - **Remove Records:** allows users the ability to remove a crime, fugitive or city from the database
 
 
-## **Has-Many-Through Relationship Models**
+## **Models and Users**
 
-- **Crime:** Crimes have many fugitives and many cities in which the crimes take place
+- **User:** an FBI agent
+
+- **Crime:** crimes have many fugitives and many cities in which the crimes take place
 - **Fugitive:** a fugitive can have many locations they are connected to through a city
 - **City:** a city can have many crimes they are connected to through
 
@@ -65,7 +66,7 @@ FBI data to seed data
 FBI agent - user stories -->
 
 ### Resources
-
+https://api.fbi.gov/docs#!/Wanted/get_wanted
 
 ### Contributors
 Abbie Coghlan & Lisa McGerr
