@@ -33,7 +33,6 @@ This application was built using data from the 2021 FBI 50 most wanted database.
         - **Most Common Location:** data regarding the most common location of crimes
 
 <img width="328" alt="Fugitive ID description" src="https://user-images.githubusercontent.com/73184313/104024522-dd971400-5188-11eb-862c-d2a72bb3577c.png"> 
-*Image of a Fugitive Instance*
 
 - **Update Records:** allows users the ability to update crime, fugitive and city information in the database
     - **Update Fugitive Data:** allows users the ability to update or correct any information about a fugitive
@@ -45,11 +44,11 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 - **Remove Records:** allows users the ability to remove a crime, fugitive or city from the database
 
 
-## **Has-Many-Through Relationship**
+## **Has-Many-Through Relationship Models**
 
-- **Crime:**
-- **Fugitive:**
-- **City:**
+- **Crime:** Crimes have many fugitives and many cities in which the crimes take place
+- **Fugitive:** a fugitive can have many locations they are connected to through a city
+- **City:** a city can have many crimes they are connected to through
 
 
 <!-- To do
@@ -71,4 +70,4 @@ FBI agent - user stories -->
 ### Contributors
 Abbie Coghlan & Lisa McGerr
 
-[^1]: The FBI have no affiliation to this application. Their public database has been used to create an application for educational purposes only.
+The FBI have no affiliation to this application. Their public database has been used to create an application for educational purposes only.
