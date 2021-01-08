@@ -32,7 +32,7 @@ class CLI
     end 
 
     def main_menu
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Access Records'
             menu.choice 'Update Records'
@@ -59,7 +59,7 @@ class CLI
     def access_records
         clear_screen
 
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Access Fugitive Data'
             menu.choice 'Access Crime Data'
@@ -84,7 +84,7 @@ class CLI
     
     def fugitive_data
         clear_screen
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Find by name'
             menu.choice 'Find by location'
@@ -175,7 +175,7 @@ class CLI
     def analyze_fugitive_data
         clear_screen
 
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Oldest fugitive'
             menu.choice 'Youngest fugitive'
@@ -233,7 +233,7 @@ class CLI
     def crime_data
         clear_screen
 
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Find by fugitive'
             menu.choice 'Find by city'
@@ -322,7 +322,7 @@ class CLI
    
     def update_records
         clear_screen
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Update fugitive data'
             menu.choice 'Update crime data'
@@ -348,7 +348,7 @@ class CLI
     end 
 
     def update_fugitive
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Locate fugitive record by:") do |menu|
             menu.choice 'Name'
             menu.choice 'Id'
@@ -378,7 +378,7 @@ class CLI
             puts ""
             entry.print_data
             puts ""
-            prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+            prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
             update_menu = prompt.select("Select category to update:") do |menu|
                 menu.choice 'Name'
                 menu.choice 'Alias'
@@ -563,7 +563,7 @@ class CLI
 
 
     def update_crime
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Locate crime record by:") do |menu|
             menu.choice 'Crime ID'
             menu.choice 'Fugitive ID'
@@ -589,7 +589,7 @@ class CLI
             puts ""
             entry.print_data
             puts ""
-            prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+            prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
             update_menu = prompt.select("Select category to update:") do |menu|
                 menu.choice 'Description'
                 menu.choice 'Subject'
@@ -658,7 +658,7 @@ class CLI
                 puts ""
                 entry.print_data
                 puts ""
-                prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+                prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
                 update_menu = prompt.select("Select category to update:") do |menu|
                     menu.choice 'Description'
                     menu.choice 'Subject'
@@ -716,7 +716,7 @@ class CLI
     end 
 
     def update_city
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Locate city record by:") do |menu|
             menu.choice 'Name'
             menu.choice 'Id'
@@ -751,7 +751,7 @@ class CLI
             puts ""
             entry.name.capitalize()
             puts ""
-            prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+            prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
             update_menu = prompt.select("Select category to update:") do |menu|
                 menu.choice 'Name'
                 menu.choice 'Main menu'
@@ -787,7 +787,7 @@ class CLI
     def create_new_records
         clear_screen
 
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Add fugitive'
             menu.choice 'Add crime'
@@ -883,7 +883,7 @@ class CLI
     def delete_records
         clear_screen
         
-        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "•".red})
+        prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Delete fugitive'
             menu.choice 'Delete crime'
