@@ -1,59 +1,89 @@
-# Module One Final Project Guidelines
+# **THE FBI FIFTY MOST WANTED**
 
-Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
+<img width="437" alt="FBI Logo" src="https://user-images.githubusercontent.com/73184313/104023303-10d8a380-5187-11eb-85cb-b19eb2dd6343.png">
 
-For your final project, we'll be building a Command Line database application.
 
-## Project Requirements
+Welcome to the FBI 50 Most Wanted application! 
 
-### Option One - Data Analytics Project
+This project was created by two students attending Flatiron School's software engineering immersive as their end of module one project. In this application, we redesign the FBI's most wanted database in order to create an application that allows our user, an FBI agent, to read, analyze, input, update and remove information about fugitives and their crimes in various cities across the US. To get started, we seed our application with real-time data from the FBI's open API, allowing our application access to current information about the FBI's most wanted criminals.
 
-1. Access a Sqlite3 Database using ActiveRecord.
-2. You should have at minimum three models including one join model. This means you must have a many-to-many relationship.
-3. You should seed your database using data that you collect either from a CSV, a website by scraping, or an API.
-4. Your models should have methods that answer interesting questions about the data. For example, if you've collected info about movie reviews, what is the most popular movie? What movie has the most reviews?
-5. You should provide a CLI to display the return values of your interesting methods.  
-6. Use good OO design patterns. You should have separate classes for your models and CLI interface.
 
-  **Resource:** [Easy Access APIs](https://github.com/learn-co-curriculum/easy-access-apis)
+<!-- This application will allow the FBI to store, track, alter, and analyze the 50 most wanted criminals and their crimes.This is seeded with data from the FBI's 50 Most Wanted database. application allows FBI agents to read, analyze, input and remove details about crimes, fugitives and locations. All data has been taken from the FBI's public database and has been restructured for a better user story -->
 
-### Option Two - Command Line CRUD App
+## **Instructions**
 
-1. Access a Sqlite3 Database using ActiveRecord.
-2. You should have a minimum of three models.
-3. You should build out a CLI to give your user full CRUD ability for at least one of your resources. For example, build out a command line To-Do list. A user should be able to create a new to-do, see all todos, update a todo item, and delete a todo. Todos can be grouped into categories, so that a to-do has many categories and categories have many to-dos.
-4. Use good OO design patterns. You should have separate classes for your models and CLI interface.
+1. This app is working with Ruby 2.6.1 ``` rvm install 2.6.1 ```
+2. Fork and clone this repository into local environment
+3. Run ``` bundle install ``` in your terminal 
+4. Run the ``` rake prepare_database ``` to create, migrate and seed your database with data from the FBI database, this will also being running the application
+5. Follow the prompts with your arrow key to get started, additionally you will need to use your keyboard to a 
+6. If at any time you exit the application run ``` rake enter ``` in your terminal to re-enter the application
 
-### Brainstorming and Proposing a Project Idea
 
-Projects need to be approved prior to launching into them, so take some time to brainstorm project options that will fulfill the requirements above.  You must have a minimum of four [user stories](https://en.wikipedia.org/wiki/User_story) to help explain how a user will interact with your app.  A user story should follow the general structure of `"As a <role>, I want <goal/desire> so that <benefit>"`. For example, if we were creating an app to randomly choose nearby restaurants on Yelp, we might write:
 
-* As a user, I want to be able to enter my name to retrieve my records
-* As a user, I want to enter a location and be given a random nearby restaurant suggestion
-* As a user, I should be able to reject a suggestion and not see that restaurant suggestion again
-* As a user, I want to be able to save to and retrieve a list of favorite restaurant suggestions
+## **Models and Users**
 
-## Instructions
+- **User:** an FBI agent
 
-1. Fork and clone this repository.
-2. Build your application. Make sure to commit early and commit often. Commit messages should be meaningful (clearly describe what you're doing in the commit) and accurate (there should be nothing in the commit that doesn't match the description in the commit message). Good rule of thumb is to commit every 3-7 mins of actual coding time. Most of your commits should have under 15 lines of code and a 2 line commit is perfectly acceptable.
-3. Make sure to create a good README.md with a short description, install instructions, a contributor's guide and a link to the license for your code.
-4. Make sure your project checks off each of the above requirements.
-5. Prepare a video demo (narration helps!) describing how a user would interact with your working project.
-    * The video should:
-      - Have an overview of your project. (2 minutes max)
-6. Prepare a presentation to follow your video. (3 minutes max)
-    * Your presentation should:
-      - Describe something you struggled to build, and show us how you ultimately implemented it in your code.
-      - Discuss 3 things you learned in the process of working on this project.
-      - Address what, if anything, you would change or add to what you have today.
-      - Present any code you would like to highlight.   
-7. *OPTIONAL, BUT RECOMMENDED*: Write a blog post about the project and process.
+- **Crime:** crimes have many fugitives and many cities in which the crimes take place
+- **Fugitive:** a fugitive can have many locations that are connected to through a city
+- **City:** a city can have many crimes that are connected to through
 
----
-### Common Questions:
-- How do I turn off my SQL logger?
-```ruby
-# in config/environment.rb add this line:
-ActiveRecord::Base.logger = nil
-```
+
+
+## **Menu Prompts**
+
+![Welcome to the FBI's 50 most wanted database.](https://user-images.githubusercontent.com/73184313/104022455-ecc89280-5185-11eb-8483-c73971045781.jpg)
+
+- **Access Records:** allows users the abilty to access crime and fugitive data or perform a data analysis
+   
+    - **Access Fugitive Data:** allows users the ability to access data about age, physical features, distinguishing marks, warnings or fugitive status using a name, fugitive ID number or location
+        -**Data Analysis:** allows users to access data about oldest fugitives, youngest fugitives, most common hair color and the most wanted fugitive
+    - **Access Crime Data:** allows users the ability to access information about the description, subject, reward and date recorded using a crime ID, fugitive name or location
+        - **Most Common Location:** data regarding the most common location of crimes
+
+<img width="328" alt="Fugitive record iD 38 was located:
+Name: LEI GAO
+Aliases: 'Jason'
+Age: 
+Hair color: black
+Eye color: brown
+Gender: Male
+Scars and marks:
+Status: Suspect is at large
+Warning: SHOULD BE CONSIDERED AN ESCAPE RISK
+" src="https://user-images.githubusercontent.com/73184313/104024522-dd971400-5188-11eb-862c-d2a72bb3577c.png"> 
+
+- **Update Records:** allows users the ability to update crime, fugitive and city information in the database
+    - **Update Fugitive Data:** allows users the ability to update or correct any information about a fugitive
+    - **Update Crime Data:** allows users the ability to update or correct any information about a crime
+    - **Update City Data:** allows users the ability to update or correct a city name
+
+- **Create New Records:** allows users the ability to enter information into the database about a new crime, fugitive or city name 
+
+- **Remove Records:** allows users the ability to remove a crime, fugitive or city from the database
+
+
+
+
+
+<!-- To do
+- the premise of the project is create an FBI database moving forward
+- create photo file with screenshots from applicaion
+- go into detail about methods and 
+- database is seeded with data from 
+
+ ‘rake prepare_database’ will create, migrate, seed, and start the app
+
+‘rake enter’ will let them enter the app again if they exit
+
+FBI data to seed data
+FBI agent - user stories -->
+
+### Resources
+https://api.fbi.gov/docs#!/Wanted/get_wanted
+
+### Contributors
+Abbie Coghlan & Lisa McGerr
+
+The FBI have no affiliation to this application. Their public database has been used to create an application for educational purposes only.
