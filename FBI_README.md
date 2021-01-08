@@ -5,7 +5,7 @@
 
 Welcome to the FBI 50 Most Wanted application! 
 
-This application was built using data from the 2021 FBI 50 most wanted database. This app has been seeded with real information about the crimes, fugitives and locations of the FBI's 50 most wanted.  Upon initialization of this app the user will seed their local database with all of the data . This app was created to assist FBI agents and users to read, analyze, input and remove information about crimes, fugitives and locations, correcting the formatting for ease of use.    
+This project was created by two students attending Flatiron School's software engineering immersive as their end of module one project. In this application, we redesign the FBI's most wanted database in order to create an application that allows our user, an FBI agent, to read, analyze, input, update and remove information about fugitives and their crimes in various cities across the US. To get started, we seed our application with real-time data from the FBI's open API, allowing our application access to current information about the FBI's most wanted criminals.
 
 
 <!-- This application will allow the FBI to store, track, alter, and analyze the 50 most wanted criminals and their crimes.This is seeded with data from the FBI's 50 Most Wanted database. application allows FBI agents to read, analyze, input and remove details about crimes, fugitives and locations. All data has been taken from the FBI's public database and has been restructured for a better user story -->
@@ -15,14 +15,14 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 1. This app is working with Ruby 2.6.1 ``` rvm install 2.6.1 ```
 2. Fork and clone this repository into local environment
 3. Run ``` bundle install ``` in your terminal 
-4. Run the ``` rake prepare_database ``` to create, migrate and seed your database with data from the FBI database, this will also open being running the application
-5. Follow the prompts with your arrow key to get started 
+4. Run the ``` rake prepare_database ``` to create, migrate and seed your database with data from the FBI database, this will also being running the application
+5. Follow the prompts with your arrow key to get started, additionally you will need to use your keyboard to a 
 6. If at any time you exit the application run ``` rake enter ``` in your terminal to re-enter the application
 
 
 ## **Menu Prompts**
 
-![Welcome to the FBI's 50 most wanted database](https://user-images.githubusercontent.com/73184313/104022455-ecc89280-5185-11eb-8483-c73971045781.jpg)
+![Welcome to the FBI's 50 most wanted database.](https://user-images.githubusercontent.com/73184313/104022455-ecc89280-5185-11eb-8483-c73971045781.jpg)
 
 - **Access Records:** allows users the abilty to access crime and fugitive data or perform a data analysis
    
@@ -31,7 +31,17 @@ This application was built using data from the 2021 FBI 50 most wanted database.
     - **Access Crime Data:** allows users the ability to access information about the description, subject, reward and date recorded using a crime ID, fugitive name or location
         - **Most Common Location:** data regarding the most common location of crimes
 
-<img width="328" alt="Fugitive ID description" src="https://user-images.githubusercontent.com/73184313/104024522-dd971400-5188-11eb-862c-d2a72bb3577c.png"> 
+<img width="328" alt="Fugitive record iD 38 was located:
+Name: LEI GAO
+Aliases: 'Jason'
+Age: 
+Hair color: black
+Eye color: brown
+Gender: Male
+Scars and marks:
+Status: Suspect is at large
+Warning: SHOULD BE CONSIDERED AN ESCAPE RISK
+" src="https://user-images.githubusercontent.com/73184313/104024522-dd971400-5188-11eb-862c-d2a72bb3577c.png"> 
 
 - **Update Records:** allows users the ability to update crime, fugitive and city information in the database
     - **Update Fugitive Data:** allows users the ability to update or correct any information about a fugitive
@@ -48,8 +58,8 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 - **User:** an FBI agent
 
 - **Crime:** crimes have many fugitives and many cities in which the crimes take place
-- **Fugitive:** a fugitive can have many locations they are connected to through a city
-- **City:** a city can have many crimes they are connected to through
+- **Fugitive:** a fugitive can have many locations that are connected to through a city
+- **City:** a city can have many crimes that are connected to through
 
 
 <!-- To do
