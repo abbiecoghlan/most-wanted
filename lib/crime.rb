@@ -3,17 +3,24 @@ class Crime < ActiveRecord::Base
     belongs_to :fugitive
 
     def print_data
-        puts "Subject: #{self.subject}"
+        print "Subject: ".bold.blue
+        puts "#{self.subject}"
         sleep(0.5)
-        puts "Description: #{self.description}"
+        print "Description: ".bold.blue
+        puts "#{self.description}"
         sleep(0.5)
-        puts "Suspects: #{self.fugitive.name}"
+        print "Suspects: ".bold.blue
+        puts "#{self.fugitive.name}"
         sleep(0.5)
-        puts "Location: #{self.city.name}" rescue
+        print "Location: ".bold.blue 
+        puts "#{self.city.name}" rescue
         sleep(0.5)
-        puts "Date recorded: #{self.created_at}"
+        print "Date recorded: ".bold.blue
+        puts "#{self.created_at}"
         sleep(0.5)
-        puts "Reward: #{self.reward}"
+        print "Reward: ".bold.blue
+        puts "#{self.reward}"
+        sleep(0.5)
         puts ""
     end
 
@@ -24,15 +31,6 @@ class Crime < ActiveRecord::Base
         location = City.find_by(id: sorted.city_id)
         location.name
     end 
-
-
-    #find all the crimes in a city
-#     def self.find_by_city(location)
-#         city = City.find_by(name: location.strip.downcase)
-#         if city = nil
-#         self.find_by(city_id: city.id)
-#     end
-
 
 
 
