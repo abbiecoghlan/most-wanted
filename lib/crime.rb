@@ -6,7 +6,7 @@ class Crime < ActiveRecord::Base
         puts "Subject: #{self.subject}"
         puts "Description: #{self.description}"
         puts "Suspects: #{self.fugitive.name}"
-        puts "Location: #{self.city.name}"
+        puts "Location: #{self.city.name}" rescue
         puts "Date recorded: #{self.created_at}"
         puts "Reward: #{self.reward}"
     end
