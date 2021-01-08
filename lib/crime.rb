@@ -14,6 +14,7 @@ class Crime < ActiveRecord::Base
         puts "Date recorded: #{self.created_at}"
         sleep(0.5)
         puts "Reward: #{self.reward}"
+        puts ""
     end
 
     def self.most_common_location
