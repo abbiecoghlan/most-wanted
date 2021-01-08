@@ -17,7 +17,12 @@ class CLI
     def run
         Sound.new('dundundun.wav').play
         clear_screen
-        puts "You are entering the FBI's 50 most wanted database"
+        puts ""
+        puts " FEDERAL BUREAU OF INVESTIVATIONS ".blue.center(120, "*")
+        puts ""
+        puts "You are now entering the FBI's 50 most wanted database".center(100) 
+        puts "⛔️ Unauthorized entry prohibited".center(100).red
+        puts "Violators will be prosecuted".center(100).red
         puts ""
         main_menu
     end 
