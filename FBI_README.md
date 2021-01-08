@@ -1,6 +1,7 @@
 # **THE FBI FIFTY MOST WANTED**
 
-<img width="437" alt="FBI Logo" src="https://user-images.githubusercontent.com/73184313/104023303-10d8a380-5187-11eb-85cb-b19eb2dd6343.png">
+<img width="437" alt="FBI Logo" src="https://user-images.githubusercontent.com/73184313/104023303-10d8a380-5187-11eb-85cb-b19eb2dd6343.png"> [^1]
+
 
 Welcome to the FBI 50 Most Wanted application! 
 
@@ -66,3 +67,5 @@ FBI agent - user stories -->
 
 ### Contributors
 Abbie Coghlan & Lisa McGerr
+
+[^1]: The FBI have no affiliation to this application. Their public database has been used to create an application for educational purposes only.
