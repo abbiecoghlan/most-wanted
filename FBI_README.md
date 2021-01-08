@@ -1,4 +1,4 @@
-# THE FBI FIFTY MOST WANTED
+# **THE FBI FIFTY MOST WANTED**
 
 Welcome to the FBI 50 Most Wanted application! 
 
@@ -9,19 +9,16 @@ This application was built using data about fugitives, their locations and crime
 
 ## Instructions
 
-1. This app is working with Ruby v 2.6.1
+1. This app is working with Ruby 2.6.1 ``` rvm install 2.6.1 ```
 2. Fork and clone this repository into local environment
-3. Run ```bundle install``` in your terminal 
-4. Run the following command to create, migrate and seed your database with data from the FBI database, this will also open being running the application. Let's get started!
-    ```
-    rake prepare_database
-    ```
-6. Follow the prompts with your arrow key to get started 
-7. If at any time you exit the application run ```rake enter``` in your terminal to re-enter the application
+3. Run ``` bundle install ``` in your terminal 
+4. Run the ``` rake prepare_database ``` to create, migrate and seed your database with data from the FBI database, this will also open being running the application
+5. Follow the prompts with your arrow key to get started 
+6. If at any time you exit the application run ``` rake enter ``` in your terminal to re-enter the application
 
 ## Main Menu Prompts
 
-- Access Records: alloes users to access crime and fugitive data or perform a data analysis
+- **Access Records:** alloes users to access crime and fugitive data or perform a data analysis
    
     - Access Fugitive Data: allows users the ability to access data about age, physical features, distinguishing marks, warnings or fugitive status through a name search, fugitive ID number or location.
         - Data Analysis: allows users to access data about oldest fugitives, youngest fugitives, most common hair color and the most wanted fugitive
