@@ -108,7 +108,7 @@ class CLI
             else
                 clear_screen
                 puts ""
-                puts "Fugitive record ID: #{found_fugitive.id} was located:"
+                puts "Fugitive record ID #{found_fugitive.id} was located:"
                 puts ""
                 found_fugitive.print_data
                 puts ""
