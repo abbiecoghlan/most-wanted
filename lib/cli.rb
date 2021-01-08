@@ -88,6 +88,7 @@ class CLI
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Find by name'
             menu.choice 'Find by location'
+            menu.choice 'Find by ID'
             menu.choice 'Data analysis'
             menu.choice 'Main menu'
             menu.choice 'Exit'
@@ -133,6 +134,30 @@ class CLI
                 puts ""
                 main_menu
             end   
+        when "Find by ID"
+            clear_screen
+            puts "Enter ID to locate fugitive records:"
+            input = user_input.strip.to_i
+            entry = Fugitive.find_by(id: input)
+            if !entry
+                puts ""
+                puts "Fugitive not located"
+                puts ""
+                sleep (0.5)
+                main_menu
+            else 
+                clear_screen
+                puts "Fugitive ID #{entry.id} was located:"
+                puts ""
+                sleep (0.75)
+                entry.print_data
+                puts ""
+                sleep (0.5)
+                main_menu
+            end 
+
+
+
         when "Data analysis"
             analyze_fugitive_data
         when "Main menu"
