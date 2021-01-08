@@ -20,7 +20,8 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 
 ## **Main Menu Prompts**
 
-![Welcome to the FBI's 50 most wanted database](images/fbi.jpg)
+![Welcome to the FBI's 50 most wanted database](https://user-images.githubusercontent.com/73184313/104022455-ecc89280-5185-11eb-8483-c73971045781.jpg)
+<!-- ![Welcome to the FBI's 50 most wanted database](images/fbi.jpg) -->
 
 - **Access Records:** allows users the abilty to access crime and fugitive data or perform a data analysis
    
