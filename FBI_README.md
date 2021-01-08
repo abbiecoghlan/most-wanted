@@ -20,6 +20,8 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 
 ## **Main Menu Prompts**
 
+![Welcome to the FBI's 50 most wanted database](images/fbi.jpg)
+
 - **Access Records:** allows users the abilty to access crime and fugitive data or perform a data analysis
    
     - **Access Fugitive Data:** allows users the ability to access data about age, physical features, distinguishing marks, warnings or fugitive status searching by name search, fugitive ID number or location
