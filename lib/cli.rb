@@ -545,7 +545,7 @@ class CLI
                 scars = "#{entry.scars_and_marks}, #{input}."
                 entry.update(scars_and_marks: scars)
                 puts ''
-                puts "Scars and marks have been updated to #{entry.scars_and_marks}."
+                puts "Scars and marks have been updated to #{entry.scars_and_marks}"
                 puts ""
                 sleep (0.5)
                 main_menu
@@ -719,7 +719,7 @@ class CLI
         prompt = TTY::Prompt.new(active_color: :blue, symbols: {marker: "✪".red})
         my_menu = prompt.select("Locate city record by:") do |menu|
             menu.choice 'Name'
-            menu.choice 'Id'
+            menu.choice 'ID'
             menu.choice 'Main menu'
             menu.choice 'Exit'
         end 
@@ -730,7 +730,7 @@ class CLI
             print "Enter name to locate city record: "
             input = user_input.downcase.gsub(/\s/,"")
             entry = City.find_by(name: input)
-        when "Id"
+        when "ID"
             puts ""
             print "Enter ID to locate city record: "
             input = user_input.strip.to_i
@@ -908,7 +908,7 @@ class CLI
     end 
 
     def delete_fugitive
-        puts "Enter fugitive_id to remove fugitive from database: "
+        puts "Enter fugitive ID to remove fugitive from database: "
         input = gets.chomp.strip.to_i
         Fugitive.all.find_by(id: input).destroy
         puts "This fugitive has been removed from the database. "
@@ -918,10 +918,13 @@ class CLI
     end 
 
     def delete_crime
-        puts "Enter crime_id to remove from crime from database: "
+        puts "Enter crime ID to remove from crime from database: "
         input = gets.chomp.strip.to_i
+        puts ""
+        puts "The following crime has been removed from the database: "
+        puts ""
+        Crime.all.find_by(id: input).print_data
         Crime.all.find_by(id: input).destroy
-        puts "This crime has been removed from the database. "
         puts ""
         sleep (0.5)
         main_menu
@@ -930,8 +933,12 @@ class CLI
     def delete_city
         puts "Enter city_id to remove from city from database: "
         input = gets.chomp.strip.to_i
+        sleep (0.5)
+        puts ""
+        puts "The following record was removed from the database: "
+        puts ""
+        City.all.find_by(id: input).print_data
         City.all.find_by(id: input).destroy
-        puts "This city has been removed from the database. "
         puts ""
         sleep (0.5)
         main_menu
