@@ -50,7 +50,7 @@ class Fugitive < ActiveRecord::Base
         puts "Eye color: #{self.eye_color}"
         puts "Gender: #{self.gender}"
         puts "Scars and marks: #{self.scars_and_marks}"
-        if self.at_large
+        if self.at_large == true
             puts "Status: Suspect is at large"
             puts "Warning: #{self.warning}"
         else

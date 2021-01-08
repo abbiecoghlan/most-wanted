@@ -105,6 +105,7 @@ class CLI
             end
 
         when "Find by location"
+            clear_screen
             print "Enter location: "
             input = user_input
             found_city = City.find_by(name: input.downcase.gsub(/\s/,""))
@@ -151,31 +152,26 @@ class CLI
 
         case my_menu
         when "Oldest fugitive"
-            puts ""
             puts "The oldest fugitive currently in our database is: "
             puts ""
             Fugitive.oldest_fugitive.print_data      
             puts ""
             main_menu
         when "Youngest fugitive"
-            puts ""
             puts "The youngest fugitive currently in our database is: "
             puts ""
             Fugitive.youngest_fugitive.print_data      
             puts ""
             main_menu
         when "Average age"
-            puts ""
             puts "The average age of the fugitives in our database is #{Fugitive.average_age}."
             puts ""
             main_menu
         when "Most common hair color"
-            puts ""
             puts "The most common hair color for fugitives in our database is: #{Fugitive.most_common_hair_color}."
             puts ""
             main_menu
         when "Most wanted"
-            puts ""
             puts "The most wanted fugitive in our database is: "
             puts ""
             Fugitive.all.first.print_data
@@ -258,14 +254,14 @@ class CLI
     def update_records
         clear_screen
         prompt = TTY::Prompt.new
-        my_menu = prompt.select("Locate fugitive record by:") do |menu|
+        my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Update fugitive data'
             menu.choice 'Update crime data'
             menu.choice 'Update city data'
             menu.choice 'Main menu'
             menu.choice 'Exit'
         end 
-
+        clear_screen
         case my_menu
         when "Update fugitive data"
             update_fugitive
