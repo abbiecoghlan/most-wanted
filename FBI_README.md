@@ -24,3 +24,5 @@ Welcome to the 2021 FBI's 50 Most Wanted app! This application allows FBI agents
 - Create New Records - FBI agents are able to enter new crimes, fugitives and cities into the database.
 
 - Remove Records - FBI agents are able to remove crimes, fugitives and cities from the database
+
+![Welcome to the FBI's Most Wanted Database](FBI.jpg)
