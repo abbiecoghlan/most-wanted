@@ -1,8 +1,10 @@
 # **THE FBI FIFTY MOST WANTED**
 
+<img width="437" alt="FBI Logo" src="https://user-images.githubusercontent.com/73184313/104023303-10d8a380-5187-11eb-85cb-b19eb2dd6343.png">
+
 Welcome to the FBI 50 Most Wanted application! 
 
-This application was built using data from the 2021 FBI 50 most wanted database. This app has been seeded with real information about the crimes, fugitives and locations of the FBI's 50 most wanted.  Upon initialization of this app the user will seed their local database with all of the data . This app was created to help FBI agents read, analyze, input and remove details about crimes, fugitives and locations, correcting formatting and for ease of use.    
+This application was built using data from the 2021 FBI 50 most wanted database. This app has been seeded with real information about the crimes, fugitives and locations of the FBI's 50 most wanted.  Upon initialization of this app the user will seed their local database with all of the data . This app was created to assist FBI agents and users to read, analyze, input and remove information about crimes, fugitives and locations, correcting the formatting for ease of use.    
 
 
 <!-- This application will allow the FBI to store, track, alter, and analyze the 50 most wanted criminals and their crimes.This is seeded with data from the FBI's 50 Most Wanted database. application allows FBI agents to read, analyze, input and remove details about crimes, fugitives and locations. All data has been taken from the FBI's public database and has been restructured for a better user story -->
@@ -21,7 +23,6 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 ## **Main Menu Prompts**
 
 ![Welcome to the FBI's 50 most wanted database](https://user-images.githubusercontent.com/73184313/104022455-ecc89280-5185-11eb-8483-c73971045781.jpg)
-<!-- ![Welcome to the FBI's 50 most wanted database](images/fbi.jpg) -->
 
 - **Access Records:** allows users the abilty to access crime and fugitive data or perform a data analysis
    
@@ -40,7 +41,11 @@ This application was built using data from the 2021 FBI 50 most wanted database.
 - **Remove Records:** allows users the ability to remove a crime, fugitive or city from the database
 
 
-## Many- Through Relationship
+## **Many-Through Relationship**
+
+- **Crime:**
+- **Fugitive:**
+- **City:**
 
 
 <!-- To do
