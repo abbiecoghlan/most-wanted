@@ -237,6 +237,7 @@ class CLI
         my_menu = prompt.select("Please select from the following options:") do |menu|
             menu.choice 'Find by fugitive'
             menu.choice 'Find by city'
+            menu.choice 'Find by ID'
             menu.choice 'Most common location'
             menu.choice 'Main menu'
             menu.choice 'Exit'
@@ -282,7 +283,27 @@ class CLI
                 sleep (0.5)
                 main_menu
             end
-        
+        when 'Find by ID'
+            clear_screen
+            puts "Enter crime ID to locate crime record: "
+            input = user_input.strip.to_i
+            entry = Crime.find_by(id: input)
+            if !entry
+                puts ""
+                puts "Crime not located"
+                puts ""
+                sleep (0.5)
+                main_menu
+            else 
+                clear_screen
+                puts "Crime ID #{entry.id} was located: "
+                puts ""
+                sleep (0.75)
+                entry.print_data
+                puts ""
+                sleep (0.5)
+                main_menu
+            end
         when "Most common location"
             puts ""
             puts "The most common location where crimes in our databased have occured is #{Crime.most_common_location.capitalize()}."
