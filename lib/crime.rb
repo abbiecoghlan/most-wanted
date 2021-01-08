@@ -4,10 +4,15 @@ class Crime < ActiveRecord::Base
 
     def print_data
         puts "Subject: #{self.subject}"
+        sleep(0.5)
         puts "Description: #{self.description}"
+        sleep(0.5)
         puts "Suspects: #{self.fugitive.name}"
+        sleep(0.5)
         puts "Location: #{self.city.name}" rescue
+        sleep(0.5)
         puts "Date recorded: #{self.created_at}"
+        sleep(0.5)
         puts "Reward: #{self.reward}"
     end
 
