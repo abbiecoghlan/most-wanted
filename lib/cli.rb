@@ -103,6 +103,7 @@ class CLI
                 clear_screen
                 puts "Fugitive not found, verify spelling."
                 puts ""
+                sleep (0.5)
                 main_menu
             else
                 clear_screen
@@ -111,6 +112,7 @@ class CLI
                 puts ""
                 found_fugitive.print_data
                 puts ""
+                sleep (0.5)
                 main_menu
             end
 
@@ -123,6 +125,7 @@ class CLI
                 clear_screen
                 puts "City not found, verify spelling."
                 puts ""
+                sleep (0.5)
                 main_menu
             else 
                 clear_screen
@@ -132,6 +135,7 @@ class CLI
                 found_fugitives = found_city.fugitives
                 found_fugitives.map {|fugitive| fugitive.print_data}
                 puts ""
+                sleep (0.5)
                 main_menu
             end   
         when "Find by ID"
@@ -190,26 +194,31 @@ class CLI
             puts ""
             Fugitive.oldest_fugitive.print_data      
             puts ""
+            sleep (0.5)
             main_menu
         when "Youngest fugitive"
             puts "The youngest fugitive currently in our database is: "
             puts ""
             Fugitive.youngest_fugitive.print_data      
             puts ""
+            sleep (0.5)
             main_menu
         when "Average age"
             puts "The average age of the fugitives in our database is #{Fugitive.average_age}."
             puts ""
+            sleep (0.5)
             main_menu
         when "Most common hair color"
             puts "The most common hair color for fugitives in our database is: #{Fugitive.most_common_hair_color}."
             puts ""
+            sleep (0.5)
             main_menu
         when "Most wanted"
             puts "The most wanted fugitive in our database is: "
             puts ""
             Fugitive.all.first.print_data
             puts ""
+            sleep (0.5)
             main_menu
         when "Main menu"
             clear_screen
@@ -242,12 +251,14 @@ class CLI
             if !found_fugitive 
                 puts "Fugitive not found, verify spelling."
                 puts ""
+                sleep (0.5)
                 main_menu
             else
                 puts "#{input} is wanted for the following crimes:"
                 found_crimes = Crime.all.select {|crime| crime.fugitive_id == found_fugitive.id}
                 found_crimes.map {|crime| crime.print_data}
                 puts ""
+                sleep (0.5)
                 main_menu
             end
         when "Find by city" 
@@ -259,14 +270,16 @@ class CLI
                 puts ""
                 puts "City not found, verify spelling."
                 puts ""
+                sleep (0.5)
                 main_menu
             else
-                puts ""
-                puts "The follow crimes were found in #{input}:"
-                puts ""
                 found_crimes = Crime.all.select {|crime| crime.city_id == found_city.id}
+                puts ""
+                puts "There were a total of #{found_crimes.count} found in #{input}:"
+                puts ""
                 found_crimes.map {|crime| crime.print_data}
                 puts ""
+                sleep (0.5)
                 main_menu
             end
         
@@ -274,6 +287,7 @@ class CLI
             puts ""
             puts "The most common location where crimes in our databased have occured is #{Crime.most_common_location.capitalize()}."
             puts ""
+            sleep (0.5)
             main_menu
         when "Main menu"
             clear_screen
@@ -336,6 +350,7 @@ class CLI
             puts ""
             puts "Fugitive not located."
             puts ""
+            sleep (0.5)
             main_menu
         else 
             clear_screen
@@ -368,6 +383,7 @@ class CLI
                 puts ''
                 puts "Name has been updated to #{entry.name}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Alias'
                 puts ''
@@ -380,6 +396,7 @@ class CLI
                 puts ''
                 puts "Alias has been updated to #{entry.alias}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Age'
                 puts ''
@@ -391,6 +408,7 @@ class CLI
                 puts ''
                 puts "Age has been updated to #{entry.age}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Hair color'
                 puts ''
@@ -402,6 +420,7 @@ class CLI
                 puts ''
                 puts "Hair color has been updated to #{entry.hair_color}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Eye color'
                 puts ''
@@ -413,6 +432,7 @@ class CLI
                 puts ''
                 puts "Eye color has been updated to #{entry.eye_color}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'At large?'
                 puts ''
@@ -426,6 +446,7 @@ class CLI
                         entry.update(at_large: false)
                         puts "Fugitive has been captured. "
                         puts ""
+                        sleep (0.5)
                         main_menu
                         #animation
                     elsif input == 2
@@ -434,10 +455,12 @@ class CLI
                         puts "Fugitive is still at large."
                         #animation
                         puts ""
+                        sleep (0.5)
                         main_menu
                     else
                         puts "Invalid selection. "
                         puts ""
+                        sleep (0.5)
                         main_menu
                     end     
             elsif entry.at_large == false
@@ -451,16 +474,19 @@ class CLI
                         # Sound.new('dundundun.wav').play
                         puts "Fugitive status has been updated to at large."
                         puts ""
+                        sleep (0.5)
                         main_menu
                     elsif input == 2
                         entry.update(at_large: false)
                         puts "Fugitive status captured is confirmed"
                         puts ""
+                        sleep (0.5)
                         main_menu
                         #animation
                     else
                         puts "Invalid selection. "
                         puts ""
+                        sleep (0.5)
                         main_menu
                     end     
                 end
@@ -475,6 +501,7 @@ class CLI
                 puts ''
                 puts "Gender has been updated to #{entry.gender}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Warning'
                 puts ''
@@ -486,6 +513,7 @@ class CLI
                 puts ''
                 puts "Warning has been updated to #{entry.warning}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Scars and marks'
                 puts ''
@@ -498,6 +526,7 @@ class CLI
                 puts ''
                 puts "Scars and marks have been updated to #{entry.scars_and_marks}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Main menu'
                 clear_screen
@@ -530,6 +559,7 @@ class CLI
                 puts ""
                 puts "Crime not located. Select from the following options:"
                 puts ""
+                sleep (0.5)
                 update_crime
 
             else 
@@ -558,6 +588,7 @@ class CLI
                 puts ''
                 puts "Description has been updated to #{entry.description}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Subject'
                 puts ""
@@ -569,6 +600,7 @@ class CLI
                 puts ''
                 puts "Subject has been updated to #{entry.subject}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Reward'
                 puts ""
@@ -580,6 +612,7 @@ class CLI
                 puts ''
                 puts "Reward has been updated to #{entry.reward}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Main menu'
                 clear_screen
@@ -624,6 +657,7 @@ class CLI
                     puts ''
                     puts "Description has been updated to #{entry.description}."
                     puts ""
+                    sleep (0.5)
                     main_menu
                 when 'Subject'
                     puts ""
@@ -635,6 +669,7 @@ class CLI
                     puts ''
                     puts "Subject has been updated to #{entry.subject}."
                     puts ""
+                    sleep (0.5)
                     main_menu
                 when 'Reward'
                     puts ""
@@ -646,6 +681,7 @@ class CLI
                     puts ''
                     puts "Reward has been updated to #{entry.reward}."
                     puts ""
+                    sleep (0.5)
                     main_menu
                 when 'Main menu'
                     clear_screen
@@ -688,6 +724,7 @@ class CLI
             puts ""
             puts "City not located."
             puts ""
+            sleep (0.5)
             main_menu
         else 
             puts ""
@@ -711,6 +748,7 @@ class CLI
                 puts ''
                 puts "Name has been updated to #{entry.name}."
                 puts ""
+                sleep (0.5)
                 main_menu
             when 'Main menu'
                 clear_screen
@@ -775,8 +813,12 @@ class CLI
 
         fugitive_new.save
         # Sound.new('dundundun.wav').play
+        clear_screen
         puts "Fugitive has been saved to database, fugitive_id is : #{fugitive_new.id}. "
         puts ""
+        sleep (0.5)
+        fugitive_new.print_data
+        sleep (0.5)
         main_menu
     end 
 
@@ -796,8 +838,13 @@ class CLI
 
         crime_new.save
         # Sound.new('dundundun.wav').play
+        clear_screen
         puts "Crime has been saved to database, crime_id is : #{crime_new.id}."
         puts ""
+        sleep (0.5)
+        crime_new.print_data
+        puts ""
+        sleep (0.5)
         main_menu
         
         
@@ -808,6 +855,7 @@ class CLI
         city_new = City.find_or_create_by(name: gets.chomp.downcase.gsub(/\s+/, ""))
         puts "City_id is #{city_new.id}. "
         puts ""
+        sleep (0.5)
         main_menu
     end 
 
@@ -844,6 +892,7 @@ class CLI
         Fugitive.all.find_by(id: input).destroy
         puts "This fugitive has been removed from the database. "
         puts ""
+        sleep (0.5)
         main_menu
     end 
 
@@ -853,6 +902,7 @@ class CLI
         Crime.all.find_by(id: input).destroy
         puts "This crime has been removed from the database. "
         puts ""
+        sleep (0.5)
         main_menu
     end 
 
@@ -862,6 +912,7 @@ class CLI
         City.all.find_by(id: input).destroy
         puts "This city has been removed from the database. "
         puts ""
+        sleep (0.5)
         main_menu
     end
 
