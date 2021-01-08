@@ -197,7 +197,7 @@ class CLI
             sleep (0.5)
             main_menu
         when "Youngest fugitive"
-            puts "The youngest fugitive currently in our database is: "
+            puts "The youngest fugitive currently in our database is fugitive ID #{Fugitive.youngest_fugitive.id}: "
             puts ""
             Fugitive.youngest_fugitive.print_data      
             puts ""
