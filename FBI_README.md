@@ -2,7 +2,7 @@
 
 Welcome to the FBI 50 Most Wanted application! 
 
-This application was built using data about fugitives, their locations and crimes from the 2021 FBI Database. Upon initialization of this app the user will seed their local database. This app was created to help FBI agents read, analyze, input and remove details about crimes, fugitives and locations, correcting formatting and for ease of use.    
+This application was built using data from the 2021 FBI 50 most wanted database. This app has been seeded with real information about the crimes, fugitives and locations of the FBI's 50 most wanted.  Upon initialization of this app the user will seed their local database with all of the data . This app was created to help FBI agents read, analyze, input and remove details about crimes, fugitives and locations, correcting formatting and for ease of use.    
 
 
 <!-- This application will allow the FBI to store, track, alter, and analyze the 50 most wanted criminals and their crimes.This is seeded with data from the FBI's 50 Most Wanted database. application allows FBI agents to read, analyze, input and remove details about crimes, fugitives and locations. All data has been taken from the FBI's public database and has been restructured for a better user story -->
@@ -15,6 +15,8 @@ This application was built using data about fugitives, their locations and crime
 4. Run the ``` rake prepare_database ``` to create, migrate and seed your database with data from the FBI database, this will also open being running the application
 5. Follow the prompts with your arrow key to get started 
 6. If at any time you exit the application run ``` rake enter ``` in your terminal to re-enter the application
+
+
 
 ## **Main Menu Prompts**
 
