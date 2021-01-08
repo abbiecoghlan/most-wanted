@@ -7,7 +7,7 @@ This application was built using data about fugitives, their locations and crime
 
 <!-- This application will allow the FBI to store, track, alter, and analyze the 50 most wanted criminals and their crimes.This is seeded with data from the FBI's 50 Most Wanted database. application allows FBI agents to read, analyze, input and remove details about crimes, fugitives and locations. All data has been taken from the FBI's public database and has been restructured for a better user story -->
 
-## Instructions
+## **Instructions**
 
 1. This app is working with Ruby 2.6.1 ``` rvm install 2.6.1 ```
 2. Fork and clone this repository into local environment
@@ -16,7 +16,7 @@ This application was built using data about fugitives, their locations and crime
 5. Follow the prompts with your arrow key to get started 
 6. If at any time you exit the application run ``` rake enter ``` in your terminal to re-enter the application
 
-## Main Menu Prompts
+## **Main Menu Prompts**
 
 - **Access Records:** allows users the abilty to access crime and fugitive data or perform a data analysis
    
@@ -25,24 +25,20 @@ This application was built using data about fugitives, their locations and crime
     - **Access Crime Data:** allows users the ability to access information about the description, subject, suspects, reward and date recorded searching by crime ID, fugitive name or location
         - **Most Common Location:** data regarding the most common location of crimes
 
+- **Update Records:** allows users the ability to update crime, fugitive and city information in the database
+    - **Update Fugitive Data:** allows users the ability to update or correct any information about a fugitive
+    - **Update Crime Data:** allows users the ability to update or correct any information about a crime
+    - **Update City Data:** allows users the ability to update or correct a city name
 
+- **Create New Records:** allows users the ability to enter information into the database about a new crime, fugitive or city name 
 
-- **Update Records:** allows users to update crime, fugitive and city data in the database. 
-    - Correct spelling, alter record or adding missing record
-    - **Update Fugitive Data:**
-    - **Update Crime Data:**
-    - **Update City Data:**
-
-
-- **Create New Records:** allows users to enter new crimes, fugitives and cities into the database.
-
-- **Remove Records:** users are able to remove crimes, fugitives and cities from the database HOW
+- **Remove Records:** allows users the ability to remove a crime, fugitive or city from the database
 
 
 ## Many- Through Relationship
 
 
-To do
+<!-- To do
 - the premise of the project is create an FBI database moving forward
 - create photo file with screenshots from applicaion
 - go into detail about methods and 
@@ -53,7 +49,7 @@ To do
 ‘rake enter’ will let them enter the app again if they exit
 
 FBI data to seed data
-FBI agent - user stories
+FBI agent - user stories -->
 
 ### Resources
 
