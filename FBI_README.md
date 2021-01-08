@@ -20,6 +20,17 @@ This project was created by two students attending Flatiron School's software en
 6. If at any time you exit the application run ``` rake enter ``` in your terminal to re-enter the application
 
 
+
+## **Models and Users**
+
+- **User:** an FBI agent
+
+- **Crime:** crimes have many fugitives and many cities in which the crimes take place
+- **Fugitive:** a fugitive can have many locations that are connected to through a city
+- **City:** a city can have many crimes that are connected to through
+
+
+
 ## **Menu Prompts**
 
 ![Welcome to the FBI's 50 most wanted database.](https://user-images.githubusercontent.com/73184313/104022455-ecc89280-5185-11eb-8483-c73971045781.jpg)
@@ -53,13 +64,7 @@ Warning: SHOULD BE CONSIDERED AN ESCAPE RISK
 - **Remove Records:** allows users the ability to remove a crime, fugitive or city from the database
 
 
-## **Models and Users**
 
-- **User:** an FBI agent
-
-- **Crime:** crimes have many fugitives and many cities in which the crimes take place
-- **Fugitive:** a fugitive can have many locations that are connected to through a city
-- **City:** a city can have many crimes that are connected to through
 
 
 <!-- To do
