@@ -18,20 +18,29 @@ This application was built using data about fugitives, their locations and crime
 
 ## Main Menu Prompts
 
-- **Access Records:** alloes users to access crime and fugitive data or perform a data analysis
+- **Access Records:** allows users the abilty to access crime and fugitive data or perform a data analysis
    
-    - Access Fugitive Data: allows users the ability to access data about age, physical features, distinguishing marks, warnings or fugitive status through a name search, fugitive ID number or location.
-        - Data Analysis: allows users to access data about oldest fugitives, youngest fugitives, most common hair color and the most wanted fugitive
-    - Access Criminal Data: allows users the ability to access data about 
-    through a name search, fugitive ID number or location
+    - **Access Fugitive Data:** allows users the ability to access data about age, physical features, distinguishing marks, warnings or fugitive status searching by name search, fugitive ID number or location
+        - **Data Analysis:** allows users to access data about oldest fugitives, youngest fugitives, most common hair color and the most wanted fugitive
+    - **Access Crime Data:** allows users the ability to access information about the description, subject, suspects, reward and date recorded searching by crime ID, fugitive name or location
+        - **Most Common Location:** data regarding the most common location of crimes
 
 
-- Update Records: FBI agents are able to update crime, fugitive and city data in the database. 
+
+- **Update Records:** allows users to update crime, fugitive and city data in the database. 
     - Correct spelling, alter record or adding missing record
+    - **Update Fugitive Data:**
+    - **Update Crime Data:**
+    - **Update City Data:**
 
-- Create New Records: FBI agents are able to enter new crimes, fugitives and cities into the database.
 
-- Remove Records: users are able to remove crimes, fugitives and cities from the database HOW
+- **Create New Records:** allows users to enter new crimes, fugitives and cities into the database.
+
+- **Remove Records:** users are able to remove crimes, fugitives and cities from the database HOW
+
+
+## Many- Through Relationship
+
 
 To do
 - the premise of the project is create an FBI database moving forward
